@@ -17,4 +17,6 @@
 
 ## Lizenz
 
-TBA
+Die Inhalte dieses Repositories sind unter der [Creative Commons Attribution-ShareAlike 4.0 International License](./LICENSE) lizenziert.
+
+<img src="https://mirrors.creativecommons.org/presskit/icons/cc.xlarge.png" width="30" /><img src="https://mirrors.creativecommons.org/presskit/icons/by.xlarge.png" width="30" /><img src="https://mirrors.creativecommons.org/presskit/icons/sa.xlarge.png" width="30" />
