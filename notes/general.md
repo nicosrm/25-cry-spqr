@@ -5,6 +5,7 @@
     - aktueller Stand, warum anders?
 - Ecliptic Curve, Angriffsmöglichkeiten durch Quanten-Computing, warum etwas anderes? (5 min)
 - PQXDH für Secret-Erstellung (10 min)
+    - optional: CRYSTALS-Kyber KEM
 - Schlüsselübertragung (20 min)
     - Problematik
     - Herleitung ML-KEM Braid
