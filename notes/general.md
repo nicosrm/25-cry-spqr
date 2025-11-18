@@ -3,9 +3,13 @@
 - Einleitung  (5 min)
     - Motivation, Relevanz (weite Verbreitung), Signal?
     - aktueller Stand, warum anders?
+    - _ganz_ kurz, um abzuholen, anderer Vortrag direkt vor uns
 - Ecliptic Curve, Angriffsmöglichkeiten durch Quanten-Computing, warum etwas anderes? (5 min)
+    - Diskretes-Logarithmus-Problem durch QC angreifbar
+    - nicht auf konkrete Algorithmen eingehen
 - PQXDH für Secret-Erstellung (10 min)
-    - optional: CRYSTALS-Kyber KEM
+    - CRYSTALS-Kyber KEM $\to$ sollte mit drin sein
+        - eher oben einsparen
 - Schlüsselübertragung (20 min)
     - Problematik
     - Herleitung ML-KEM Braid
