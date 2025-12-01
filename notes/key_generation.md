@@ -58,6 +58,7 @@
 ### Notation
 
 - Verkettung von Byte-Sequenzen $X, Y$ ist $X || Y$
+    - hier: $X \circ Y$
 - $DH(PK_1,PK_2)$: Shared Secret, Output von Diffie-Hellman-Funktion (je nach `curve`-Parameter)
 - $Sig(PK,M,Z)$: `curve` XEdDSA-Signatur der Byte-Sequenz $M$, welche mit $PK$'s Private Key erstellt wurde unter Verwendung von 64B von $Z$-_Randomness_
 - $KDF(KM)$: 32B Output vom HKDF-Algorithmus (_Key Derivation Function_)
@@ -96,3 +97,71 @@
 - Speicherung der Keys + Identifier auf Server
 
 ### PQXDH-Protokoll
+
+**3 Phasen**
+- Bob veröffentlicht EC Identity-Key, EC Prekeys & `pqkem`-Prekeys auf Server
+- Alice ruft _Prekey Bundle_ vom Server ab; verwendet diese für initiale Nachricht an Bob
+- Bob empfängt und verarbeitet initiale Nachricht von Alice
+
+#### I. Veröffentlichung der Keys
+
+- Bob generiert 64 Byte zufällige Werte $Z_{\text{SPK}}, Z_{\text{PQSPK}}, Z_1, Z_2, \ldots$
+- Veröffentlichung von verschiedenen Keys
+    - siehe Paper
+- Identity Key $IK_B$ wird nur einmal hochgeladen
+- neue One-Time Prekeys jederzeit möglich
+    - bspw. wenn Bob vom Server informiert wird, dass nur noch wenige vorliegen
+- neuer signierter `curve`-Prekey bzw. signierter Last-Resort-`pqkem`-Prekey in bestimmten Intervall
+    - wieder mit $IK_B$ signiert
+    - neue Prekeys ersetzen vorherige Werte
+    - entsprechender Private Key für bestimmte Zeit behalten zur Entschlüsselung von ggf. verspäteten Nachrichten; schließlich Löschen für _Forward Secrecy_
+- Private Keys für One-Time-Prekey werden gelöscht, sobald Nachricht empfangen wurde, welche diesen benutzt
+
+#### II: Initiale Nachricht Senden
+
+- für _PQXDH Key Agreement_ mit Bob sind Prekeys notwendig
+- Alice kontaktiert Server für _Prekey Bundle_
+    - siehe Paper
+    - bei Bereitstellung von `curve` One-Time Prekey löscht Server diesen anschließend
+    - wenn kein `curve` OPK auf Server mehr vorhanden, dann enthält Prekey Bundle keinen
+    - Bereitstellung von `pqkem` One-Time Signed Prekeys $PKOPK_B^n$, falls vorhanden
+        - anschließend löschen
+        - falls nicht vorhanden, dann `pqkem` Last-Resort Signed Prekey $PQSPK_B$
+- Alice verifiziert Signaturen der Prekeys
+    - Abbruch des Protokolls falls eine Prüfung fehlschlägt
+- Generierung eines Ephemeral `curve` Schlüsselpaares mit Public Key $EK_A$
+- Generierung eines `pqkem` _Encapsulated Shared Secret_
+    - $(CT,SS) = PQKEM-ENC(PQPK_B)$
+        - Shared Secret $SS$
+        - Ciphertext $CT$
+- falls Bundle keinen `curve` OPK enthält, dann
+    - $DH_1 = DH(IK_A, SPK_B)$
+    - $DH_1 = DH(EK_A, IK_B)$
+    - $DH_1 = DH(EK_A, SPK_B)$
+    - $SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ SS)$
+- andernfalls:
+    - $DH_4 = DH(EK_A, OPK_B)$
+    - $SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ \mathbf{DH_4} \circ SS)$
+- nach Berechnung von $SK$: Löschung des Ephemeral `curve` Private Keys, die $DH$-Ergebnisse und das Shared Secret $SS$
+- Berechnung einer _Associated Data_ Bytesequenz $AD$
+    - enthält Identitätsinformationen beider Partien
+    - $AD = EncodeEC(IK_A) \circ EncodeEC(IK_B)$
+    - falls `pqkem` $PKPK_B$ _nicht_ in Ciphertext verarbeitet, muss Alice $EncodeKEM(PQPK_B)$ an $AD$ dranhängen
+    - optional: weitere Informationen anhängen, bspw. Username, Zertifikate oder andere Identifikationsmittel
+- Alice sende initiale Nachricht an Bob inkl. verschiedener Keys
+    - siehe Paper
+- anschließend Löschen vom Ciphertext $CT$
+- ggf. Weiterverwendung von $SK$ oder davon abgeleiteten Keys
+
+### III. Empfang der initialen Nachricht
+
+- Erhalten von Alices initialer Nachricht
+- Bob ruft Alices Identity Key und Ephemeral Key aus Nachricht ab
+- Laden des eigenen Identity Private Keys
+- Verwendung der Key-Identifier zum Laden der Private Keys, welche zu den signierten Prekeys, One-Time Prekeys und KEM-Key passen, welche von Alice verwendet wurden
+- Berechnung des Shared Secrets $SS = PQKEM-DEC(PQPK_B, CT)$
+- Wiederholung der $DH$- und $KDF$-Berechnungen aus II zur Ableitung von $SK$ und $AD$
+- Abbruch falls Entschlüsselung von $CT$ fehlschlägt, Löschcen von $SK$
+- erfolgreiche Entschlüsselung: Abschluss des Protokolls
+    - Löschen von $CT$ und allen One-Time Private Prekeys, welche verwendet wurden $\to$ Forward Secrecy
+    - ggf. Weiterverwendung von $SK$ oder davon abgeleiteten Keys
