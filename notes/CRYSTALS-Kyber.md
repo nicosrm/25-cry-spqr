@@ -4,3 +4,111 @@
 
  empfehlung es hybrid mit pre Quantum technologie wie ECC 
  es gibt Kyber-512 Kyber-768 und Kyber-1024
+
+- Basiert auf learning-with-errors (LWE) auf modularen Gittern
+- LWE Gleichungs Variablen herausfinden während eine unbekannte error Rate drauf gerechnet wurde
+
+
+
+
+Folien:
+
+Folie 1 CRYSTALS-Kyper:
+- key encapsulation mechanism (KEM)
+- Kyber-512, Kyber-768 und Kyber-1024
+- Empfehlung: hybrid mit pre Quantum technologie wie ECC 
+- basiert auf learning-with-errors (LWE) auf Modul-Gittern
+
+
+Folie 2 LWE:
+
+\begin{pmatrix}
+14 & 15 & 5  & 2 \\
+13 & 14 & 14 & 6 \\
+6  & 10 & 13 & 1 \\
+10 & 4  & 12 & 16
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+s_1 \\
+s_2 \\
+s_3 \\
+s_4
+\end{pmatrix}
+=
+\begin{pmatrix}
+262 \\
+374 \\
+258 \\
+336
+\end{pmatrix}
+
+Folie 3 LWE:
+A = \begin{MATRIX} 
+14 & 15 & 5  & 2  \\
+13 & 14 & 14 & 6  \\
+6  & 10 & 13 & 1  \\
+10 &  4 & 12 & 16 \\
+9  &  5 & 9  & 6  \\
+3  &  6 & 4  & 5  \\
+6  &  7 & 17 & 2
+\end{MATRIX}
+e = \begin{MATRIX} 1 \\ -1 \\ 0 \\ -1 \\ 1 \\ 0 \\ 1 \end{MATRIX}
+s = \begin{MATRIX} 0 \\ 13 \\ 9 \\ 11\end{MATRIX}
+q = 17
+
+
+b = A + x s + e (mod q) = \begin{MATRIX} 8 \\ 16 \\ 3 \\ 12 \\ 9 \\ 16 \\ 3  \end{MATRIX}   
+
+Folie 4 Kleines Beispiel\cite{Gonzalez2021Kyber}:
+- modulo q = 17
+- Polynom Ring Z_17[X]/(X^4+1)
+- privat key: s=(−x^3−x^2+x,−x^3−x)
+
+Folie 5 Privat key:
+- Public key: (A,t) mit t = As + e
+- Zufällige Matrix A =
+\begin{pmatrix}
+6x^3 + 16x^2 + 16x + 1 & 15x^3 + 3x^2 + 10x + 1 \\
+9x^3 + 4x^2 + 6x + 3  & 6x^3 + x^2 + 9x + 15
+\end{pmatrix} 
+- e = (x^2,x^2−x)
+- t = (16x^3 + 15x^2 + 7, 10x^3 + 12x^2 + 11x + 6)
+
+
+Folie 6 Verschlüsseln:
+
+u​=A^Tr+e_1
+v=t^Tr+e_2+m
+c = (u,v)
+
+Beispiel Rechnung:
+r = (-x^3+x^2, x^3+x^2-1)
+e_1 = (x^2+x, x^2)
+e_2 = -x^3 - x^2
+
+m_b = 11_10 = 1011_2 = 1x^3 + 0x^2 + 1x^1 + 1x^0 = x^3 + x + 1
+m = \left\lfloor \frac{ q }{ 2 } \right\rceil * m_b = 9x^3 + 9x + 9
+u​=(11x^3+11x^2+10x+3, 4x^3+4x^2+13^x+11)
+v =7x^3+6x^2+8x+15​
+
+Folie 7: Entschlüsseln
+m_n​=v−s^Tu
+m_n​=e^Tr+ e_2​+m+s^Te_1
+Rauschen vorhanden, runden zu \left\lfloor \frac{ q }{ 2 } \right\rceil oder q
+m_b​=\frac{ 1 }{ 9 }​(9x^3+0x^2+9x+9)=(1x^3+0x^2+1x+1)
+m_b = (1011)_2=(11)_10
+
+Folie 8 c:
+Name        n    k    q     η1   η2   du   dv   δ
+----------------------------------------------------
+Kyber512    256  2    3329  3    2    10   4    2^-139
+Kyber768    256  3    3329  2    2    10   4    2^-164
+Kyber1024   256  4    3329  2    2    11   5    2^-174
+
+n: maximaler Grad der verwendeten Polynome
+k: Anzahl der Polynome pro Vektor
+q: Modulus für die Zahlen
+η_1_, η_2: steuern, wie groß die Koeffizienten der „kleinen“ Polynome sein dürfen
+d_u_, d_v: steuern, wie stark (u,v) komprimiert werden
+δ: gibt die Wahrscheinlichkeit an, dass eine Entschlüsselung ein falsches Ergebnis liefert
