@@ -23,3 +23,12 @@
     - Notizen in Markdown über git
     - Folien _händisch_ erstellen und ins git hochladen
     - später zusammen Folien erstellen
+
+## Plan für Einführung von PQ-Sicherheit
+`@gentyalaQuantumResistanceSignal2025`
+
+- I. Absicherung des initialen Handshakes mittels PQXDH
+    - hybrider Ansatz: Kombination von Ecliptic Curve Key Agreement und PQ KEM (CRYSTALS-Kyber)
+    - beides muss gebrochen werden
+- II. SPQR für PQ-sichere Forward Secrecy and Post-Compromise Security
+    - Double Ratchet $\to$ Triple Ratchet
