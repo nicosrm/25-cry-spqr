@@ -34,7 +34,7 @@
 | `hash` | Hash-Funktion, bspw. `SHA-512` |
 | `info` | ASCII-String zur Identifikation der Anwendung, bspw. `MyProtocol` |
 | `pqkem` | Post-Quantum Key Encapsulation Mechanism, bspw. `CRYSTALS-Kyber-1024` |
-| `aed` | Schema für _Authenticated Encryption with Associated Data_ |
+| `aead` | Schema für _Authenticated Encryption with Associated Data_ |
 | `EncodeEC` | Funktion, die `curve`-Public-Key in Byte-Sequenz verschlüsselt |
 | `DecodeEC` | Funktion, die Byte-Sequenz in `curve`-Public-Key entschlüsselt, Inverses von `EncodeEC` |
 | `EncodeKEM` | Funktion, die `pqkem`-PK in Byte-Sequenz verschlüsselt |
@@ -146,7 +146,7 @@
 - Berechnung einer _Associated Data_ Bytesequenz $AD$
     - enthält Identitätsinformationen beider Partien
     - $AD = EncodeEC(IK_A) \circ EncodeEC(IK_B)$
-    - falls `pqkem` $PKPK_B$ _nicht_ in Ciphertext verarbeitet, muss Alice $EncodeKEM(PQPK_B)$ an $AD$ dranhängen
+    - falls `pqkem` $PQPK_B$ _nicht_ in Ciphertext verarbeitet, muss Alice $EncodeKEM(PQPK_B)$ an $AD$ dranhängen
     - optional: weitere Informationen anhängen, bspw. Username, Zertifikate oder andere Identifikationsmittel
 - Alice sende initiale Nachricht an Bob inkl. verschiedener Keys
     - siehe Paper
@@ -216,3 +216,61 @@
 - *Preventing KEM Re-Encapsulation Attacks*
     - Kyber KEM verwendet KEM Public Key bei Generierung des Shared Secrets $\to$ Verhindern dieser Attacke
 - *Key Identifiers*
+
+
+## An Analysis of Signal Messenger's PQXDH
+`@schmidtAnalysisSignalsPQXDH2024`
+Slides: https://iacr.org/submit/files/slides/2024/rwc/rwc2024/86/slides.pdf
+
+### Ziele
+
+- Ziel: Schutzt vor _Harvest Now, Decrypt Later_ Attacken (_HNDL_)
+- Nicht-Ziel: Schutz vor _aktiven_ Quantum-Attacken
+- PQ zu **X3DH-Handshake** hinzufügen
+    - Output muss zufällig für Quanten-Angreifer:in aussehen $\to$ dann sehen auch Keys, welche davon abgeleitet werden (Double Ratchet), sehen zufällig aus $\Rightarrow$ HNDL-Schutz
+- zukünftig: Schutz der Ratchet (SPQR)
+
+### PQXDH Design
+
+- einfache Idee: X3DH nehmen und _PQKEM Encapuslated Share Secret_ hinzufügen
+
+![PQXDH Design](../assets/images/schmidt_pqxdh_design.png)
+
+- Unterschied zu X3DH in rot markiert
+- $IK$: _Mutual Authentication_
+- $EK$, $SK$, $OPK$ für Forward Secrecy
+- neu: $PQPK$, welcher von Alice verwendet wird, um $CT_\text{KEM}$ zu berechnen
+
+### Findings aus Formaler Verifikation
+- Formale Verifikation: Ref. auf Talk
+- _Key Confusion Attack_
+    - $IK$ zwar außerhalb verifiziert und $PK$ können nicht verändert werden, ABER ...
+    - Vertauschen von Keys und Signaturen (${SPK_B}$ und ${PQPK_B}$) möglich
+    - Alice berechnet $(SS,CT) = \texttt{KEM.Encaps} (SPK_B^{PK})$
+    - unsicher ohne weitere Annahme an KEM
+    - wenn $CT$ vorliegt, kann $SS$ berechnet werden
+    - Verlust von PQ-Sicherheit, welche von $PQPK$ kam
+    - Fix: alle _Key Encodings_ müssen dijunkte _Co-Domains_ haben
+- _KEM Re-Encapsulation Vulnerability_
+    - Kompromittierung von _einem_ $PQPK_B^x$
+    - O&E als _Man-in-the-Middle_: tauschen $PQPK_B^y$ durch $PQPK_B^{\color{red}{x}}$ aus
+    - wenn Alice Nachricht schickt, dekodieren O&E Nachricht und Encodieren diese mit ursprünglichem $PQPK_B^y$ erneut; Senden an Bob
+    - bricht HNDL-Schutz für alle anderen ${PQPK}$ einer Partei
+    - keine _Session Independence_
+    - Fix: Fordern, dass KEM-Encapsulation den Public Key des Empfängers einbezieht
+
+![KEM Re-Encapsulation Attack](../assets/images/schmidt_pqxdh_kem_reencapsulation_attack.png)
+
+### Neue Protokoll-Revision
+
+- disjunkte Co-Domains für Key Encodings (Key Confusion)
+- Kyper Public Keys werden bei Berechnung des KEM Shared Secret einbezogen
+    - $PQPK_B^{PK}$ wird bei $AD$ einbezogen, falls nicht bereits bei KEM (KEM Re-Encapsulation)
+- `aead`-Parameter hinzugefügt, muss PQ IND-CPA und INT-CTXT sein
+
+$\Rightarrow$ PQXDH erfüllt klassische und PQ Sicherheitsanforderungen in Modellen
+
+### Fazit
+
+- PQ-Protokolle: mehr als nur Einbringen von PQ-Krypto, viele _Pitfalls_
+- formale Verifikation als wertvolles Tool zum Finden von möglichen Attacken
