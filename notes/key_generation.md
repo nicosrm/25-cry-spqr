@@ -218,9 +218,12 @@
 - *Key Identifiers*
 
 
-## An Analysis of Signal Messenger's PQXDH
-`@schmidtAnalysisSignalsPQXDH2024`
+## An Analysis of Signal Messenger's PQXDH (Talk)
+`@schmidtAnalysisSignalsPQXDH2024` (Talk)
+
 Slides: https://iacr.org/submit/files/slides/2024/rwc/rwc2024/86/slides.pdf
+
+passender Artikel unten
 
 ### Ziele
 
@@ -274,3 +277,53 @@ $\Rightarrow$ PQXDH erfüllt klassische und PQ Sicherheitsanforderungen in Model
 
 - PQ-Protokolle: mehr als nur Einbringen von PQ-Krypto, viele _Pitfalls_
 - formale Verifikation als wertvolles Tool zum Finden von möglichen Attacken
+
+
+## An Analysis of Signal Messenger's PQXDH (Artikel)
+`@bhargavanCryspenAnalysisSignals2023`
+
+- High-Level PQXDH
+    - einfügen von PQ-sicheren Shared Key in klassisches X3DH
+    - Shared Secret: Output von PQ-KEM $(CT, SS) = \texttt{PQKEM-ENC}(PQPK_B)$
+    - Verwendung von $SS$ und Diffie-Hellman-Werten aus X3DH in _Key Derivation Function_ $SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ DH_4 \circ {\color{red} SS})$
+        - $DH_4$ ggf. weggelassen, falls kein `curve` One-Time Prekey $OPK_B$ vorliegt
+
+![Keys von verschiedenen Parteien](../assets/images/bhargavan_keys.png)
+
+- Alice initiiert, Bob antwortet
+- Alice holt Bobs Prekey Bundle vom Server
+    - Bobs signierten PQ Public Key (One-Time Prekey $PQOPK_B$ _oder_ Last Resort Key $PQSPK_B$)
+    - signierter Curve Prekey $SPK_B$
+    - optional: One-Time Curve Prekey $OPK_B$
+- Alice verifiziert Signatur mittels Bobs Identity Public Key $IPK_B$
+- Alice generiert Ephemeral Curve Key $ESK_A$
+- PQXDH mit Input: Alices Private Keys und alle Public Keys von Bob
+    - erstellt Key Derivation basierend auf verschiedenen Curve-Berechnungen und mittels zusätzlichen KEM-Berechnungen einen AEAD Encryption Key $SK$
+    - $SK$ wird für Verschlüsselung der initalen Nachricht von Alice an Bob verwendet
+- Bob empfängt verschlüsselte Nachricht
+- PQXDH mit Input: Private Keys, $IPK_A$
+    - generiert $SK$, verifiziert einkommende Nachricht und entschlüsselt initiale Nachricht von Alice
+
+### Formale Verifikation
+
+**Ziele**
+
+> In both models, we want to prove the following security properties:
+> 
+> - Sender and message authentication
+> - (Forward) Secrecy of messages sent between uncompromised devices
+> - Forward secrecy even in the presence of a quantum attacker, as long as all KEM private keys remain uncompromised
+> - Resistance to KCI attacks (when using one-time keys)
+> - Resistance to identity misbinding attacks (when using a trusted PKI for identity keys)
+> 
+> We do _not_ prove:
+> 
+> - Replay protection (since we do not model one-time key deletion)
+> - Any kind of deniability
+
+**Auswirkungen**
+
+> - The description of the parameters now includes the security properties of the PQ KEM scheme (IND-CCA), the AEAD (IND-CPA and INT-CTXT), and the disjointness of the encoding functions.
+> - The protocol specification now emphasises that the clients should be able to identify whether a PQ KEM key is the last-resort or an ephemeral key.
+> - The specification now requires that `PQPK_B` is added to the additional data `AD` of the AEAD if it is not used internaly in the KEM to derive the shared secret. Combined, this prevents the KEM re-encapsulation issues described above.
+
