@@ -1,0 +1,60 @@
+@startuml
+participant Alice as A
+participant Bob as B
+participant Server as S
+
+== I. Veröffentlichung der Keys ==
+
+' Ecliptic Curve Keys
+'B -> S: PUT <math>IK_B</math> (EC Identity Key)
+'B -> S: PUT <math>{SPK_B}, {OPK_B}</math> (EC Prekeys)
+B -> S: PUT Ecliptic Curve Identity Key
+B -> S: PUT Ecliptic Curve Prekeys
+
+' PQ-KEM Prekeys
+'B -> S: PUT <math>PQSPK_B, {PQOPK_B}</math> (PQ-KEM Prekeys)
+B -> S: PUT PQKEM Prekeys
+
+
+== II. Initiale Nachricht Senden==
+
+A -> S: GET Prekey Bundle
+S --> A: Prekey Bundle
+S -> S: Löschen der One-Time Prekeys
+
+A -> A: Verifikation der Prekeys
+alt Verifikation fehlgeschlagen
+A -> A: Abbruch
+end
+
+A -> A: Generierung Ephemeral Key <math>EK_A</math>
+A -> A: Generierung Ciphertext und PQKEM-verschachteltes\nShared Secret <math>CT, SS</math>
+A -> A: Berechnung Shared Key\n<math>SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ SS)</math>
+A -> A: DEL <math>EK_A, SS, {DH}</math>
+A -> A: Berechnung <math>AD = EncodeEC(IK_A) \circ EncodeEC(IK_B)</math>,\nggf. <math>\circ \text{EncodeKEM}(PQPK_B)</math>
+A -> B: initiale Nachricht <math>(IK_A, EK_A, SS, SK)</math>
+A -> A: DEL <math>CT</math>
+
+
+== III. Empfang der initialen Nachricht ==
+
+A -> B: initiale Nachricht <math>(IK_A, EK_A, SS, SK)</math>
+B -> B: Laden der notwendigen Private Keys
+B -> B: <math>SS = PQKEM-DEC(PQPK_B, CT</math>
+B -> B: Berechnung von <math>SK</math>\n(analog zu II.)
+
+alt Berechnung fehlgeschlagen
+B -> B: Abbruch
+end
+
+B -> B: DEL <math>{DH}, SS</math>
+B -> B: Berechnung von <math>AD</math>\n(analog zu II.)
+B -> B: Entschlüsselung con <math>CT</math> mittels <math>SK</math> und <math>AK</math>
+
+alt Entschlüsselung fehlgeschlagen
+B -> B: DEL <math>SK</math>
+B -> B: Abbruch
+end
+
+B -> B: DEL <math>CT, {OTP}</math>
+@enduml

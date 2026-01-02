@@ -1,4 +1,7 @@
 # Key Generation
+
+[Ablauf PlantUML](../assets/pqxdh.puml)
+
 ## Quantum Resistance and the Signal Protocol
 `@kretQuantumResistanceSignal`
 
@@ -63,8 +66,8 @@
 - $Sig(PK,M,Z)$: `curve` XEdDSA-Signatur der Byte-Sequenz $M$, welche mit $PK$'s Private Key erstellt wurde unter Verwendung von 64B von $Z$-_Randomness_
 - $KDF(KM)$: 32B Output vom HKDF-Algorithmus (_Key Derivation Function_)
     - verschiedene Parameter von HKDF erklärt
-- $(CT,SS) = PQKEM-ENC(PK)$: KEM-Ciphertext aus `pqkem`-Algorithmus und Shared Secret, welche im CT durch Public Key eingebettet ist
-- $PQKEM-DEC(PK,CT)$: dekodiertes Shared Secret $SS$
+- $(CT,SS) = \text{PQKEM-ENC}(PK)$: KEM-Ciphertext aus `pqkem`-Algorithmus und Shared Secret, welche im CT durch Public Key eingebettet ist
+- $\text{PQKEM-DEC}(PK,CT)$: dekodiertes Shared Secret $SS$
     - Verwendung vom Private Key $PK$, welcher zum Public Key passt, mit welchem $CT$ verschlüsselt wurde
 
 #### Elliptic Curve Keys
@@ -131,14 +134,14 @@
     - Abbruch des Protokolls falls eine Prüfung fehlschlägt
 - Generierung eines Ephemeral `curve` Schlüsselpaares mit Public Key $EK_A$
 - Generierung eines `pqkem` _Encapsulated Shared Secret_
-    - $(CT,SS) = PQKEM-ENC(PQPK_B)$
+    - $(CT,SS) = \text{PQKEM-ENC}(PQPK_B)$
         - Shared Secret $SS$
         - Ciphertext $CT$
 - falls Bundle keinen `curve` OPK enthält, dann
     - $DH_1 = DH(IK_A, SPK_B)$
     - $DH_1 = DH(EK_A, IK_B)$
     - $DH_1 = DH(EK_A, SPK_B)$
-    - $SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ SS)$
+    - Shared Key $SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ SS)$
 - andernfalls:
     - $DH_4 = DH(EK_A, OPK_B)$
     - $SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ \mathbf{DH_4} \circ SS)$
@@ -159,9 +162,9 @@
 - Bob ruft Alices Identity Key und Ephemeral Key aus Nachricht ab
 - Laden des eigenen Identity Private Keys
 - Verwendung der Key-Identifier zum Laden der Private Keys, welche zu den signierten Prekeys, One-Time Prekeys und KEM-Key passen, welche von Alice verwendet wurden
-- Berechnung des Shared Secrets $SS = PQKEM-DEC(PQPK_B, CT)$
+- Berechnung des Shared Secrets $SS = \text{PQKEM-DEC}(PQPK_B, CT)$
 - Wiederholung der $DH$- und $KDF$-Berechnungen aus II zur Ableitung von $SK$ und $AD$
-- Abbruch falls Entschlüsselung von $CT$ fehlschlägt, Löschcen von $SK$
+- Abbruch falls Entschlüsselung von $CT$ fehlschlägt, Löschen von $SK$
 - erfolgreiche Entschlüsselung: Abschluss des Protokolls
     - Löschen von $CT$ und allen One-Time Private Prekeys, welche verwendet wurden $\to$ Forward Secrecy
     - ggf. Weiterverwendung von $SK$ oder davon abgeleiteten Keys
@@ -326,4 +329,3 @@ $\Rightarrow$ PQXDH erfüllt klassische und PQ Sicherheitsanforderungen in Model
 > - The description of the parameters now includes the security properties of the PQ KEM scheme (IND-CCA), the AEAD (IND-CPA and INT-CTXT), and the disjointness of the encoding functions.
 > - The protocol specification now emphasises that the clients should be able to identify whether a PQ KEM key is the last-resort or an ephemeral key.
 > - The specification now requires that `PQPK_B` is added to the additional data `AD` of the AEAD if it is not used internaly in the KEM to derive the shared secret. Combined, this prevents the KEM re-encapsulation issues described above.
-
