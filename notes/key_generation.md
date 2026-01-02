@@ -186,33 +186,33 @@
     - für Private Keys verheerend $\to$ erlaubt _Impersonation_
     - teilweise mitigiert durch Verwendung von Ephemeral Keys und Prekeys
     - häufiger Austausch der signierten Prekeys $\to$ _Post-PQXDH-Ratcheting Protocol_
-	    - frische Forward Secrecy
-	    - **SPQR**?
+        - frische Forward Secrecy
+        - **SPQR**?
 - _Passive Quantum Adversaries_
-	- PQXDH designed, um _Harvest Now, Decrypt Later_ Attacken mit QC-Unterstützung zu verhindern
-		- bspw. Berechnung des Diskreten Logarithmus in `curve`
-		- Sicherheit hauptsächlich abgeleitet von `pqkem`
-	- notwendig, dass `aead` sicher ggü. IND-CPA (Indistinguishability under Chosen-Plaintext Attack) & INT-CTXT (Integrity of Ciphertexts) ist
-	- aktuell noch große Unsicherheit bei Abschätzung der Post-Quanten-Sicherheit
-	- (verschiedene Sicherheitseigenschaften im Paper aufgelistet)
-	- "If post-quantum one-time prekeys were not used for a protocol run, then access to a quantum computer and a compromise of the private key for $PQSPK_B$ from that protocol run would compromise the $SK$ that was calculated earlier. Frequent replacement of signed prekeys mitigates this, as does using a **post-PQXDH ratcheting protocol** which rapidly replaces $SK$ with new keys to provide fresh forward secrecy"
+    - PQXDH designed, um _Harvest Now, Decrypt Later_ Attacken mit QC-Unterstützung zu verhindern
+        - bspw. Berechnung des Diskreten Logarithmus in `curve`
+        - Sicherheit hauptsächlich abgeleitet von `pqkem`
+    - notwendig, dass `aead` sicher ggü. IND-CPA (Indistinguishability under Chosen-Plaintext Attack) & INT-CTXT (Integrity of Ciphertexts) ist
+    - aktuell noch große Unsicherheit bei Abschätzung der Post-Quanten-Sicherheit
+    - (verschiedene Sicherheitseigenschaften im Paper aufgelistet)
+    - "If post-quantum one-time prekeys were not used for a protocol run, then access to a quantum computer and a compromise of the private key for $PQSPK_B$ from that protocol run would compromise the $SK$ that was calculated earlier. Frequent replacement of signed prekeys mitigates this, as does using a **post-PQXDH ratcheting protocol** which rapidly replaces $SK$ with new keys to provide fresh forward secrecy"
 - _Active Quantum Adversaries_
-	- nicht für Schutz dagegen designed
-	- Impersonation von Alice möglich, wenn DiscLog berechnet werden kann
-		- Berechnung von $DH$, $Sig$ und $PK$
-	- Impersonation von Bob mittels bösartigen (_malicious_) Server $\to$ Austausch des Prekey-Bundles
-	- *PQ-Identity-Key* zum Signieren der PQ-Prekeys
-		- würde o.g. Attacke verhindern
-		- aber keine _Mutual Authentication_ -- PQKEM aus NIST bieten keinen Mechanismus für _PQ Deniable Mutual Authentication_
-			- könnte durch *PQ Ring Signature* oder *Designated Verifier Signature* erreicht werden
+    - nicht für Schutz dagegen designed
+    - Impersonation von Alice möglich, wenn DiscLog berechnet werden kann
+        - Berechnung von $DH$, $Sig$ und $PK$
+    - Impersonation von Bob mittels bösartigen (_malicious_) Server $\to$ Austausch des Prekey-Bundles
+    - *PQ-Identity-Key* zum Signieren der PQ-Prekeys
+        - würde o.g. Attacke verhindern
+        - aber keine _Mutual Authentication_ -- PQKEM aus NIST bieten keinen Mechanismus für _PQ Deniable Mutual Authentication_
+            - könnte durch *PQ Ring Signature* oder *Designated Verifier Signature* erreicht werden
 - _Server Trust_
-	- bösartiger Server kann Kommunikationsfehler verursachen
-		- bspw. Nicht-Zustellung von Nachrichten
-	- wenn sie sich Authentifizieren, bleibt nur noch übrig, keine One-Time Prekeys auszugeben $\to$ Forward Secrecy für $SK$ abhängig von Lifetime der Signed Prekeys
-	- könnte auch durch böswillige Massenabfrage von One-Time Prekeys provoziert werden
-		- Rate Limit für Prekey-Bundle-Abfragen
+    - bösartiger Server kann Kommunikationsfehler verursachen
+        - bspw. Nicht-Zustellung von Nachrichten
+    - wenn sie sich Authentifizieren, bleibt nur noch übrig, keine One-Time Prekeys auszugeben $\to$ Forward Secrecy für $SK$ abhängig von Lifetime der Signed Prekeys
+    - könnte auch durch böswillige Massenabfrage von One-Time Prekeys provoziert werden
+        - Rate Limit für Prekey-Bundle-Abfragen
 - *Identity Binding*
 - *Risk of Weak Randomness Sources*
 - *Preventing KEM Re-Encapsulation Attacks*
-	- Kyber KEM verwendet KEM Public Key bei Generierung des Shared Secrets $\to$ Verhindern dieser Attacke
+    - Kyber KEM verwendet KEM Public Key bei Generierung des Shared Secrets $\to$ Verhindern dieser Attacke
 - *Key Identifiers*
