@@ -2,6 +2,10 @@
 
 [Ablauf PlantUML](../assets/pqxdh.puml)
 
+[Ablauf Drawio](../assets/pqxdh_process.drawio.pdf)
+
+[Key-Übersicht Drawio](../assets/pqxdh_keys.drawio.pdf)
+
 ## Quantum Resistance and the Signal Protocol
 `@kretQuantumResistanceSignal`
 
@@ -130,6 +134,7 @@
     - Bereitstellung von `pqkem` One-Time Signed Prekeys $PKOPK_B^n$, falls vorhanden
         - anschließend löschen
         - falls nicht vorhanden, dann `pqkem` Last-Resort Signed Prekey $PQSPK_B$
+        - entsprechender Key heißt $PQPK_B$
 - Alice verifiziert Signaturen der Prekeys
     - Abbruch des Protokolls falls eine Prüfung fehlschlägt
 - Generierung eines Ephemeral `curve` Schlüsselpaares mit Public Key $EK_A$
@@ -139,8 +144,8 @@
         - Ciphertext $CT$
 - falls Bundle keinen `curve` OPK enthält, dann
     - $DH_1 = DH(IK_A, SPK_B)$
-    - $DH_1 = DH(EK_A, IK_B)$
-    - $DH_1 = DH(EK_A, SPK_B)$
+    - $DH_2 = DH(EK_A, IK_B)$
+    - $DH_3 = DH(EK_A, SPK_B)$
     - Shared Key $SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ SS)$
 - andernfalls:
     - $DH_4 = DH(EK_A, OPK_B)$

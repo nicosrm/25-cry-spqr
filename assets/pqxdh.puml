@@ -32,15 +32,15 @@ A -> A: Generierung Ciphertext und PQKEM-verschachteltes\nShared Secret <math>CT
 A -> A: Berechnung Shared Key\n<math>SK = KDF(DH_1 \circ DH_2 \circ DH_3 \circ SS)</math>
 A -> A: DEL <math>EK_A, SS, {DH}</math>
 A -> A: Berechnung <math>AD = EncodeEC(IK_A) \circ EncodeEC(IK_B)</math>,\nggf. <math>\circ \text{EncodeKEM}(PQPK_B)</math>
-A -> B: initiale Nachricht <math>(IK_A, EK_A, SS, SK)</math>
+A -> B: initiale Nachricht <math>(IK_A, EK_A, CT, SS)</math>
 A -> A: DEL <math>CT</math>
 
 
 == III. Empfang der initialen Nachricht ==
 
-A -> B: initiale Nachricht <math>(IK_A, EK_A, SS, SK)</math>
+A -> B: initiale Nachricht <math>(IK_A, EK_A, CT, SK)</math>
 B -> B: Laden der notwendigen Private Keys
-B -> B: <math>SS = PQKEM-DEC(PQPK_B, CT</math>
+B -> B: <math>SS = PQKEM-DEC(PQPK_B, CT)</math>
 B -> B: Berechnung von <math>SK</math>\n(analog zu II.)
 
 alt Berechnung fehlgeschlagen
