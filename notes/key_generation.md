@@ -6,8 +6,137 @@
 
 [Key-Übersicht Drawio](../assets/pqxdh_keys.drawio.pdf)
 
+## Folien / Notizen
+### Motivation
+- ggf. Ergänzung zu weiter oben
+- Motivation für Einführung von PQ-Sicherheit
+- Plan [Gen25]
+    - I. Absicherung des initialen Handshakes mit PQXDH
+        - hybrider Ansatz: Kombination von Ecliptic Curve Key Agreement  und PQ-KEM (CRYSTALS-Kyber)
+        - EC in Vorlesung, CRYSTALS-Kyper gerade eben
+    - II. SPQR für PQ-sichere FS und PCS $\to$ SPQR (folgt)
+        - Double Ratchet (aus vorherigem Vortrag) $\to$ Triple Ratchet
+
+### PQXDH: Einleitung
+- vorheriges Protokoll: anfällig ggü. Quanten-Attacken (Kre23, Sch24)
+- Ziel: Verhindern von _Harvest Now, Decrypt Later_ Attacken (HNDL)
+- PQ-Sicherheit zu _Handshake_ hinzufügen (Sch24)
+    - Output muss für Q-O&E zufällig aussehen, dann sehen auch abgeleitete Keys zufällig aus $\to$ HNDL-Schutz
+    - zukünftig: Schutz der Ratchet $\Rightarrow$ SQPR
+- Erweiterung von X3DH (Kre23, Bha23)
+    - Einfügen eines PQ-sicheren _Shared Keys_ in klassisches X3DH
+    - Einführung einer zusätzlichen Schicht zu _Ecliptic Curve_ (EC)
+    - Verwendung von CRYSTALS-Kyber als _Key Encapsulation Mechanism_ (KEM)
+        - _One-Way Function_, welche nicht einfach mittels QC invertierbar ist
+    - Kombination der Outputs beider Algorithmen $\to$ beide Systeme müssen geknackt werden
+
+<br>
+
+- Anforderungen? (Kre24)
+
+### Rollen (Kre24)
+- Alice
+    - Senden von initialen, verschlüsselten Daten an Bob
+    - Etablierung eines Shared Key $\to$ Verwendung für bidirektionale Kommunikation
+- Bob
+    - möchte es Parteien wie Alice erlauben, dass Shared Key etabliert und verschlüsselte Daten gesendet werden
+    - ggf. offline, wenn Alice dies versucht $\to$ Beziehung zu einem Server
+- Server
+    - Speicherung von Nachrichten von Alice an Bob
+        - späterer Abruf durch Bob
+    - Veröffentlichung von Daten von Bob, welche Alice zur Verfügung gestellt werden
+    - ggf. Aufteilung in mehrere Komponenten
+
+### Design-Idee (Bha23, Kre23, Kre24)
+- PQXDH: Erweiterung von X3DH um _PQKEM Encapsulated Shared Secret_ ($SS_{\text{KEM}}$)
+- Verwendung von CRYSTALS-Kyber als KEM
+- Verwendung von $SS_{\text{KEM}}$ und Diffie-Hellman-Werte ($DH$) aus X3DH in _Key Derivation Function_
+- Kombination der Outputs beider Algorithmen $\to$ beide Systeme müssen geknackt werden
+
+### Ablauf (Kre24)
+- 3 Phasen
+    - I. Veröffentlichung der Keys (Bob)
+    - II. Senden der initialen Nachricht (Alice)
+    - III. Empfang der initialen Nachricht (Bob)
+
+#### I. Veröffentlichung der Keys (Kre24)
+- Bob veröffentlicht EC Identity-Key, EC Prekeys & `pqkem`-Prekeys auf Server
+    - $IK_B$: EC Identity Key
+    - $SPK_B$: signierter EC Prekey
+    - ${OPK_B}$: EC One-Time-Prekeys
+    - $PSPK_B$: signierter PQKEM _Last Resort Key_
+    - ${PQOPK_B}$: signierte One-Time-PQKEM-Prekeys
+    - Plus Signaturen und _Identifier_ (weglassen für Verständlichkeit)
+- Identity Key genau 1x hochladen, ändert sich nicht
+- neue OTPs jederzeit möglich
+    - entsprechende Private Keys löschen, sobald Nachricht empfangen wurde, welche diesen verwendets
+- neue Prekeys in bestimmten Intervallen, ersetzen vorherige Werte
+    - entsprechende Private Keys behalten im Falls von verspäteten Nachrichten; schließlich löschen für Forward Secrecy
+
+#### II. Initiale Nachricht Senden (Bha23, Kre24, Sch24)
+- für _PQXDH Key Agreement_ werden Bobs Prekeys benötigt $\to$ Alice fragt _Prekey Bundle_ beim Server ab
+    - (Prekey-Bundle aus Drawio abbilden)
+- falls kein EC $OTP_B$ mehr auf Server vorhanden, dann später bei Berechnung des Shared Keys ($SK$) berücksichtigen
+- Bereitstellung von PQKEM One-Time Signed Prekey $PKOPK_B$, falls vorhanden
+    - falls nicht vorhanden, dann _Last-Resort Signed Prekey_ $PQSPK_B$
+    - entsprechender Key heißt dann $PQ\boldsymbol{P}K_B$
+- Server löscht One-Time-Prekeys anschließend
+- Alice verifiziert Signaturen der Prekeys
+    - Abbruch des Protokolls, falls fehlschlägt
+
+<br>
+
+- (Drawio PQXDH-Darstellung)
+- Generierung eines Ephemeral EC Schlüsselpaares mit Public Key $EK_A$
+- Generierungeines PQKEM _Encapsulated Shared Secrets_ $SS_{\text{KEM}}$ und Ciphertex $CT_{\text{KEM}}$
+- Berechnung der Diffie-Hellman-Werte ($DH$)
+- Berechnung des _Shared Key_ $SK$ mittels _Key Derivation Function_ (KDF)
+    - falls Prekey Bundle keinen $OPK_B$ enthählt, dann kein $DH_4$ $\to$ weglassen
+    - TODO: zu KDF noch etwas finden + weiterführende Ref.
+- Berechnung einer _Associated Data Bytesequenz_ $AD$ mittels _Authenticated Encrytion with Associated Data_ (AEAD) Algorithmus
+    - TODO: zu AEAD noch etwas finden + weiterführende Ref.
+    - enthält Identitätsinformationen beider Parteien
+    - ggf. $\text{EncodeKEM}(PQPK_B)$ dranhängen, falls $PQPK_B$ _nicht_ in $CT$ verarbeitet
+        - kodierter Public Key als Bytesequenz
+        - Verhinderung von _KEM Re-Encapsulation_ Attacken (Bha23, Sch24)
+    - optional: weitere Informationen dranhängen
+- Verschlüsselung von $CT_{\text{init}}$
+    - Verwendung von AEAD
+    - Einbeziehen von $AD$ und eines _Encryption Keys_ (entweder $SK$ direkto der davon abgeleitet)
+- Senden der initialen Nachricht an Bob
+    - siehe Drawio-Darstellung
+- Löschen von $CT_KEM$, ggf. Weiterverwendung von $SK$
+
+#### III. Empfang der initialen Nachricht (Kre24, Sch24)
+- analoges Vorgehen zu Alice, rückwärts
+- Input: Private Keys zu verwendeten Public Keys, $IK_A$ statt $IK_B$
+- Generierung von $SK$ -- hier $\texttt{DEC}$ statt $\texttt{ENC}$
+- Berechnung von $SS$
+- Wiederholung von DH- und KDF-Berechnungen zur Ableitung vin $SK$
+- analoge Konstruktion von $AD$
+- Entschlüsselung von $CT_{\text{init}}$ mittels $SK$ und $AD$
+- Löschung der $DH$ und $SS$ Werte, Löschen von $CT_{\text{KEM}}$ und verwendeten One-Time-Prekeys
+
+### Sicherheitsanalyse (Kre24)
+- Formale Verifikation als wertvolles Tool zum Finden von möglichen Attacken (Sch24)
+    - haben verschiedene Möglichkeiten in erster Revision gefunden und behoben
+    - Hinzufügen von PQ-Schutz ist mehr als nur Einbringen von PQ-Krypto, viele _Pitfalls_
+- Forward Secrecy und HNDL-Schutz
+- hier nur Auswahl, weitere Analysen siehe [Kre24]
+- _KEM Re-Encapsulation_ war Problem bei erster Variante
+    - wurde in oben vorgestellter Revision gefixt (siehe $AD$-Berechnung)
+- _Key Compromise_ von Private Keys verheerend $\to$ ermöglicht _Impersonation_
+    - häufiger Austausch der Signierten Prekeys notwendig $\to$ frischce Forward Secrecy $\to$ SQPR
+- kein Schutz vor _Active Quantum Adversaries_
+    - _Impersonation_ von Alice möglich, wenn Diskreter Logarithmus berechnet werden kann
+    - _Impersonation_ von Bob möglich durch Austausch des Prekey-Bundles
+- PQXDH erfüllt klassische PQ-Sicherheitsanforderungen in getesteten Modellen (Sch24)
+- in [Sch24] wurde explizit erwähnt, dass Ratchet geschützt werden muss $\Rightarrow$ SPQR
+
+---
+
 ## Quantum Resistance and the Signal Protocol
-`@kretQuantumResistanceSignal`
+`@kretQuantumResistanceSignal2023`
 
 - erster Schritt in Richtung Quantum-Resistenz
     - Upgrade von [X3DH](https://signal.org/docs/specifications/x3dh/) zu PQXDH
@@ -288,7 +417,7 @@ $\Rightarrow$ PQXDH erfüllt klassische und PQ Sicherheitsanforderungen in Model
 
 
 ## An Analysis of Signal Messenger's PQXDH (Artikel)
-`@bhargavanCryspenAnalysisSignals2023`
+`@bhargavanAnalysisSignalsPQXDH2023`
 
 - High-Level PQXDH
     - einfügen von PQ-sicheren Shared Key in klassisches X3DH
