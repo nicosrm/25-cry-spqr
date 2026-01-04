@@ -1,0 +1,38 @@
+% !TeX root = ../presentation.tex
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[htt]{hyphenat}
+
+\usepackage{csquotes}
+
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{references.bib}
+
+\DefineBibliographyStrings{ngerman}{
+    andothers = {et\addabbrvspace al\adddot}
+}
+
+\usepackage{caption}
+\captionsetup[figure]{font=footnotesize}
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+% Fix overfull hbox in references
+% https://tex.stackexchange.com/questions/171999/overfull-hbox-in-biblatex#comment397014_171999
+\usepackage[final]{microtype}
+
+\usepackage{hyperref}
+\usepackage{ccicons}
+
+\usepackage{stmaryrd}
+\usepackage{centernot}
+
+\usepackage{xcolor}
+\usepackage{xfrac}
+
+\usepackage{setspace}
+
+\usepackage{soul}

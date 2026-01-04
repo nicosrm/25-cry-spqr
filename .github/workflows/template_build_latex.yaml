@@ -1,0 +1,40 @@
+name: build latex
+on:
+  workflow_call:
+    inputs:
+      tex-workdir:
+        required: true
+        type: string
+      tex-file:
+        required: true
+        type: string
+      output-name:
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+      
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: ${{ inputs.tex-workdir }}
+          root_file: ${{ inputs.tex-file }}.tex
+          latexmk_shell_escape: true
+      
+      - name: Copy file
+        run: |
+          cp ${{ inputs.tex-workdir }}/${{ inputs.tex-file }}.pdf ${{ inputs.output-name }}.pdf
+      
+      - name: Upload as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.output-name }}
+          path: ${{ inputs.output-name }}.pdf

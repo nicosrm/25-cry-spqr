@@ -1,0 +1,40 @@
+% !TeX root = ../presentation.tex
+
+\documentclass[usepdftitle=false, aspectratio=169]{beamer}
+% \documentclass[usepdftitle=false, aspectratio=169, handout]{beamer}
+
+% \setbeameroption{show notes on second screen=right}
+
+\usetheme{metropolis}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\setbeamertemplate{frame footer}{
+  \tiny\insertshortauthor: \insertshorttitle, \insertdate\newline\module, \prof, \semester}
+
+% hide roman numbering on first frame with `allowframebreak`
+\setbeamertemplate{frametitle continuation}[from second][\insertcontinuationcountroman]
+
+% normal size for subitem
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+
+% remove vertical spacing in toc
+% https://tex.stackexchange.com/a/170438
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+  {\vfill}
+  {\vskip\itemsep}
+  {}
+  {}
+\makeatother
+
+\setcounter{tocdepth}{1}
+
+% remove indent on `itemize`
+% https://tex.stackexchange.com/a/450317
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
+\input{header/packages}
+\input{header/metadata}
