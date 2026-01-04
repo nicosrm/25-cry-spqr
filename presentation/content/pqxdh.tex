@@ -2,6 +2,159 @@
 
 \section{PQXDH}
 
-\begin{frame}{PQXDH}
-    
+\begin{frame}{PQXDH: Einführung}
+    \begin{itemize}
+        \item X3DH anfällig gegenüber Quanten-Computing-Attacken~\cite{kretQuantumResistanceSignal2023,schmidtAnalysisSignalsPQXDH2024}
+
+        \item Ziel: Verhinderung von \emph{Harvest Now, Decrypt Later} Attacken (HNDL)
+
+        \item Hinzufügen von PQ-Sicherheit zum \emph{Handshake}~\cite{schmidtAnalysisSignalsPQXDH2024}\\
+            $\Rightarrow$ Erweiterung von X3DH~\cite{bhargavanAnalysisSignalsPQXDH2023, kretQuantumResistanceSignal2023}
+        
+        \item Kombination von bisherigem Ecliptic Curve (EC) und CRYSTALS-Kyber
+        
+        \item[$\Rightarrow$] \emph{Post-Quantum Extended Diffie-Hellman} (PQXDH)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Rollen im Key Agreement \footnotesize\cite{kretPQXDHKeyAgreement2024}}
+    \begin{itemize}
+        \item \textbf{Alice}: Senden von initialen, verschlüsselten Daten an Bob, Etablierung einer verschlüsselten Kommunikation
+        
+        \item \textbf{Bob}: Empfangen von Nachrichten (bspw. von Alice) zur Etablierung einer verschlüsselten Kommunikation, ggf. offline
+        
+        \item \textbf{Server}: Bereitstellung von benötigten Daten für Etablierung; Speicherung von Nachrichten von Alice an Bob zum späteren Abruf
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Design-Idee \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023, kretQuantumResistanceSignal2023,kretPQXDHKeyAgreement2024}}
+    \begin{itemize}
+        \item Erweiterung von X3DH um \emph{PQKEM Encapsulated Shared Secret} ($SS_{\text{KEM}}$)
+        
+        \item Verwendung von $SS_{\text{KEM}}$ und Diffie-Hellman-Werten ($DH$) aus X3DH in \emph{Key Derivation Function} (KDF)
+        
+        \item Kombination der Outputs beider Algorithmen $\to$ Umgehen beider Systeme notwendig
+    \end{itemize}
+
+    \textbf{Ablauf}
+    \begin{enumerate}
+        \item Veröffentlichung der Keys (Bob $\to$ Server)
+        \item Senden der initialen Nachricht (Alice $\to$ Bob)
+        \item Empfang der initialen Nachricht (Bob)
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Phase 1: Veröffentlichung der Keys \footnotesize\cite{kretPQXDHKeyAgreement2024}}
+    Bob veröffentlicht folgende Keys über den Server:
+
+    \begin{tabular}{|l|l|}
+        \hline
+        Ecliptic Curve & PQ-KEM \\
+        \hline\hline
+        
+        $SPK_B$: signierter Prekey & $PQSPK_B$: signierter \emph{Last Resort} Prekey \\
+        $OPK_B$: One-Time-Prekey & $PQOPK_B$: signierter One-Time-Prekey \\
+        $IK_B$: Identity Key & \\
+        \hline
+    \end{tabular}
+
+    sowie Signaturen und Identifier
+\end{frame}
+
+
+\begin{frame}{Phase 2: Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Alice fragt \emph{Prekey Bundle} vom Server ab
+                \item Server löscht One-Time-Prekeys (OTP)\\ $\to$ \emph{single use}
+                \item Berücksichtigung falls keine OTP mehr verfügbar sind ($OPK_B$ bzw. $PQOPK_B$)
+                \item Verifikation der Signaturen der Prekeys
+            \end{itemize}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{assets/pqxdh_prekey_bundle.drawio.pdf}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Phase 2: Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/pqxdh_complete_alice.drawio.pdf}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Phase 2: Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/pqxdh_alice_dh_pqkem.drawio.pdf}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Phase 2: Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+    \only<beamer>{
+        % \framezoom(upper left x,upper left y)(zoom area width,zoom area depth)
+        \framezoom<0><1>[border](1.1cm,0.7cm)(8.5cm,3.8cm)
+        \framezoom<0><2>[border](1.7cm,2.35cm)(8cm,3cm)
+        \framezoom<0><3>[border](1.7cm,3cm)(8cm,3cm)
+        \framezoom<0><4>[border](5.2cm,3.5cm)(7cm,2cm)
+    }
+
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/pqxdh_complete_alice.drawio.pdf}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Phase 3: Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+    Bob erhält Nachricht von Alice
+
+    $(IK_A, EK_A, CT_{\text{KEM}}, \alert{CT_{\text{init}}}, \text{ Identifier})$
+
+    $\Rightarrow$ Rückwärtsrechnen von Alice Schritten, Dekodieren statt Enkodieren
+\end{frame}
+
+
+\begin{frame}{Phase 3: Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/pqxdh_bob_dh_pqkem.drawio.pdf}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Phase 3: Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+    \only<beamer>{
+        % \framezoom(upper left x,upper left y)(zoom area width,zoom area depth)
+        \framezoom<0><1>[border](3.6cm,1.7cm)(8.5cm,3.8cm)
+        \framezoom<0><2>[border](3.75cm,2.7cm)(6.9cm,2.1cm)
+    }
+
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/pqxdh_complete_bob.drawio.pdf}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Sicherheitsanalyse \footnotesize\cite{kretPQXDHKeyAgreement2024, schmidtAnalysisSignalsPQXDH2024}}
+    \begin{itemize}
+        \item formale Verifikation $\to$ Finden von Angriffsmöglichkeiten
+        % \item verschiedene Möglichkeiten in erster Revision gefunden und behoben
+        \item \emph{Key Re-Encapsulation} $\to$ $PQPK_B$ bei $AD$-Berechnung
+        \begin{itemize}
+            \item $AD = \text{EncodeEC}(IK_A) \circ \text{EncodeEC}(IK_B) \circ \alert{\text{EncodeKEM}(PQPK_B)}$
+        \end{itemize} 
+        \item \emph{Key Compromise} $\to$ häufiger Austausch von Keys, Anpassung Ratchet
+        \item kein Schutz vor \emph{Active Quantum Adversaries} (Nicht-Ziel)
+        \item PQXDH erfüllt klassische PQ-Sicherheitsanforderungen
+        \item weitere Analysen siehe \cite{kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}
+        \item \cite{schmidtAnalysisSignalsPQXDH2024}: Ratchet muss geschützt werden $\Rightarrow$ \alert{SPQR}
+    \end{itemize}
 \end{frame}

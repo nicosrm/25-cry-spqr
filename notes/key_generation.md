@@ -64,12 +64,12 @@
     - $IK_B$: EC Identity Key
     - $SPK_B$: signierter EC Prekey
     - ${OPK_B}$: EC One-Time-Prekeys
-    - $PSPK_B$: signierter PQKEM _Last Resort Key_
+    - $PQSPK_B$: signierter PQKEM _Last Resort Key_
     - ${PQOPK_B}$: signierte One-Time-PQKEM-Prekeys
     - Plus Signaturen und _Identifier_ (weglassen für Verständlichkeit)
 - Identity Key genau 1x hochladen, ändert sich nicht
 - neue OTPs jederzeit möglich
-    - entsprechende Private Keys löschen, sobald Nachricht empfangen wurde, welche diesen verwendets
+    - entsprechende Private Keys löschen, sobald Nachricht empfangen wurde, welche diesen verwendet
 - neue Prekeys in bestimmten Intervallen, ersetzen vorherige Werte
     - entsprechende Private Keys behalten im Falls von verspäteten Nachrichten; schließlich löschen für Forward Secrecy
 
@@ -88,7 +88,7 @@
 
 - (Drawio PQXDH-Darstellung)
 - Generierung eines Ephemeral EC Schlüsselpaares mit Public Key $EK_A$
-- Generierungeines PQKEM _Encapsulated Shared Secrets_ $SS_{\text{KEM}}$ und Ciphertex $CT_{\text{KEM}}$
+- Generierung eines PQKEM _Encapsulated Shared Secrets_ $SS_{\text{KEM}}$ und Ciphertex $CT_{\text{KEM}}$
 - Berechnung der Diffie-Hellman-Werte ($DH$)
 - Berechnung des _Shared Key_ $SK$ mittels _Key Derivation Function_ (KDF)
     - falls Prekey Bundle keinen $OPK_B$ enthählt, dann kein $DH_4$ $\to$ weglassen
@@ -105,7 +105,7 @@
     - Einbeziehen von $AD$ und eines _Encryption Keys_ (entweder $SK$ direkto der davon abgeleitet)
 - Senden der initialen Nachricht an Bob
     - siehe Drawio-Darstellung
-- Löschen von $CT_KEM$, ggf. Weiterverwendung von $SK$
+- Löschen von $CT_{KEM}$, ggf. Weiterverwendung von $SK$
 
 #### III. Empfang der initialen Nachricht (Kre24, Sch24)
 - analoges Vorgehen zu Alice, rückwärts
