@@ -6,13 +6,25 @@
 }
 
 \begin{frame}{Einleitung}
-    
+    \begin{itemize}
+        \item Abholen von vorherigem Vortrag
+        \item warum PQ-Schutz?, Angriffe nennen
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Ablauf Chat}
+    \begin{itemize}
+        \item TODO: Grafik Unterscheidung, @nico
+        \item initialer Handshake (X3DH $\to$ PQXDH)
+        \item Nachrichten senden (SPQR)
+    \end{itemize}
 \end{frame}
 
 
 \begin{frame}{Einführung von Quanten-Sicherheit in Signal \footnotesize\cite{connellSignalProtocolPostQuantum2025, gentyalaQuantumResistanceSignal2025}}
     \begin{itemize}
-        \item[I.] Absicherung des initialen Handshakes mit \alert{PQXDH}
+        \item[I.] Absicherung des initialen Handshakes (X3DH) mit \alert{PQXDH}
         \begin{itemize}
             \item Schutz vor \emph{Harvest Now, Decrypt Later} (HNDL) Attacken
             \item hybrider Ansatz: Kombination von Ecliptic Curve und \alert{CRYSTALS-Kyber}
@@ -20,7 +32,7 @@
 
         \item[II.] Verbesserung der \emph{Forward Secrecy} und \emph{Post-Compromise Security}
         \begin{itemize}
-            \item \alert{SQPR}: Double Ratchet $\to$ Triple Ratchet
+            \item \alert{SPQR}: Double Ratchet $\to$ Triple Ratchet
         \end{itemize}
     \end{itemize}
 \end{frame}
