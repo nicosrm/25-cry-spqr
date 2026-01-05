@@ -1,11 +1,27 @@
 # Notizen
 ## Gliederung
+- Einleitung
+    - Abholen von vorherigem Vortrag
+    - warum PQ-Schutz?, Angriffe nennen
+    - Plan für Einführung von PQ-Krypto
+- CRYSTALS-Kyber
+- PQXDH
+- SPQR
+    - Problematik
+    - Herleitung ML-KEM Braid
+    - Triple Ratchet
+- Rollout
+- Zusammenfassung
+
+<br>
+
 - Einleitung  (5 min)
     - Motivation,  (weite Verbreitung) ohne Ecliptic curve nur Verweis auf Vorlesung, Angriffe nur nennen und nicht erklären 
     - _ganz_ kurz, um abzuholen, anderer Vortrag direkt vor uns
 - PQXDH für Secret-Erstellung (15 min)
     - CRYSTALS-Kyber KEM $\to$ sollte mit drin sein
         - eher oben einsparen
+    - PQXDH
 - Schlüsselübertragung (20 min)
     - Problematik
     - Herleitung ML-KEM Braid

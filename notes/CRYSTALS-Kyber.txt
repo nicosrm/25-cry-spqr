@@ -65,7 +65,7 @@ Folie 4 Kleines Beispiel\cite{Gonzalez2021Kyber}:
 - Polynom Ring Z_17[X]/(X^4+1)
 - privat key: s=(−x^3−x^2+x,−x^3−x)
 
-Folie 5 Privat key:
+Folie 5 Public key:
 - Public key: (A,t) mit t = As + e
 - Zufällige Matrix A =
 \begin{pmatrix}
