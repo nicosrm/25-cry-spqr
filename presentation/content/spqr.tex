@@ -5,6 +5,91 @@
 
 \section{SQPR}
 
-\begin{frame}{SQPR}
-    
+\begin{frame}{Forward Secrecy und Post-Compromise Security}
+    \begin{itemize}
+        \item Aktueller Stand soll bei behalten werden
+        \item FS und PCS durch CKA
+        \begin{itemize}
+            \item Verwenden von KEM
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bandbreiten Limitierung}
+    \begin{itemize}
+        \item Idee 1: Wie aktuell mit jeder Nachricht neu vereinbaren
+        % Grafik für 71x so groß
+        \begin{itemize}
+            \item Nachricht zu groß $\Rightarrow$ langsame Performance und hoher Datenverbrauch
+        \end{itemize}
+        \item Idee 2: Alle 50 Nachrichten oder einmal pro Woche
+        \begin{itemize}
+            \item Verwendet von PQ3
+            \item Probleme bei asynchroner Kommunikation
+            \item Angriffsmöglichkeit $\Rightarrow$ Verhindern ein neues Geheimnis aufzustellen
+        \end{itemize}
+        \item Idee 3: Austausch aufteilen
+        \begin{itemize}
+            \item[$\Rightarrow$] \emph{Erasure Codes}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Erasure Codes}
+    \begin{itemize}
+        \item Aufteilen in \emph{Chunks}
+        \item alle $N$ Chunks ausreichend die Nachricht zusammenzustellen
+        \begin{itemize}
+            \item[$\Rightarrow$] Nur auffälliger DOS Angriffe möglich um neue Geheimnis zu verhindern
+        \end{itemize}
+        \item ...
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Kapazität}
+    % Grafiken
+\end{frame}
+
+\begin{frame}{Sparse Post Quantum Ratchet}
+    \begin{itemize}
+        \item ML-KEM
+        \begin{itemize}
+            \item ...
+            \item[$\Rightarrow$] ML-KEM Braid
+        \end{itemize}
+        \item[$\Rightarrow$] \emph{Sparse Post Quantum Ratchet}
+        % Grafik
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tripe Ratchet}
+    \begin{itemize}
+        \item Aktuelle Sicherheit behalten
+        \begin{itemize}
+            \item Hybrid Security
+        \end{itemize}
+        \item Erweiterung des \emph{Double Ratchet} um SPQR
+        \begin{itemize}
+            \item Mixen des Outputs mit einer \emph{Key Derivation Function}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Gehört nur so halb hier rein
+\begin{frame}{Rollout}
+    \begin{itemize}
+        \item Update nicht bei allen zeitgleich möglich $\rightarrow$ keine Kommunikation mehr möglich
+        \item Erlauben von \emph{Downgrades}
+        \begin{itemize}
+            \item Mitsenden von SPQR Data ohne Schlüsselmaterial in der Nachricht
+            \item Wenn die Antwort nicht SPQR verwendet mit altem Standard weiter kommunizieren
+        \end{itemize}
+        \item Angriffsmöglichkeit?
+        \begin{itemize}
+            \item Entfernen der SPQR nicht möglich
+            \item Downgrade nur beim Start möglich
+        \end{itemize}
+        \item Ansatz funktioniert auch für zukünftiges mögliches \emph{SPQRv2}
+        \item Irgendwann jede Nachricht mit SPQR geschützt
+    \end{itemize}
 \end{frame}
