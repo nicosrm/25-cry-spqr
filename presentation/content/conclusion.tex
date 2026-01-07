@@ -6,4 +6,16 @@
 \section{Fazit}
 
 \begin{frame}{Fazit}
+  \begin{itemize}
+      \item[I.] Absicherung des initialen Handshakes (X3DH) mit \alert{PQXDH}
+      \begin{itemize}
+          \item Schutz vor \emph{Harvest Now, Decrypt Later}-Angriffen
+          \item Hybrider Ansatz: Elliptic Curve + \alert{CRYSTALS-Kyber}
+      \end{itemize}
+
+      \item[II.] Erweiterung von \emph{Forward Secrecy} und \emph{Post-Compromise Security}
+      \begin{itemize}
+          \item Double Ratchet + \alert{SPQR} $\rightarrow$ Triple Ratchet
+      \end{itemize}
+  \end{itemize}
 \end{frame}

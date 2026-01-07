@@ -7,8 +7,9 @@
 
 \begin{frame}{CRYSTALS-Kyber}
     \begin{itemize}
-        \item Key Encapsulation Mechanism (KEM)
-        \item Sicherheitsstufen:
+        \item Key Encapsulation Mechanism (KEM) % TODO: Einführung des Begriffs, ggf. Grafik
+        
+        \item Sicherheitsstufen: % TODO: kürzen / weg
         \begin{itemize}
             \item Kyber-512
             \item Kyber-768
@@ -20,7 +21,7 @@
 \end{frame}
 
 
-\begin{frame}{Learning With Errors (LWE) – Grundidee}
+\begin{frame}{CRYSTALS-Kyber $\blacktriangleright$ Learning With Errors: Grundidee}
 \[
 \begin{pmatrix}
 14 & 15 & 5  & 2 \\
@@ -46,7 +47,7 @@ s_4
 \end{frame}
 
 
-\begin{frame}{Learning With Errors (LWE) – Formalisierung}
+\begin{frame}{CRYSTALS-Kyber $\blacktriangleright$ Learning With Errors: Formalisierung}
 \[
 A =
 \begin{pmatrix}
@@ -74,6 +75,7 @@ s =
 q = 17
 \]
 
+% TODO: Vektor transponieren
 \[
 b = A \cdot s + e \; (\bmod\; q)
 =
@@ -84,7 +86,7 @@ b = A \cdot s + e \; (\bmod\; q)
 \end{frame}
 
 
-\begin{frame}{Kleines Kyber-Beispiel \footnotesize\cite{Gonzalez2021Kyber}}
+\begin{frame}{CRYSTALS-Kyber $\blacktriangleright$ Kleines Beispiel \footnotesize\cite{Gonzalez2021Kyber}}
     \begin{itemize}
         \item Modulus: $q = 17$
         \item Polynomring: $\mathbb{Z}_{17}[X]/(X^4 + 1)$
@@ -96,7 +98,7 @@ b = A \cdot s + e \; (\bmod\; q)
 \end{frame}
 
 
-\begin{frame}{Public Key}
+\begin{frame}{CRYSTALS-Kyber $\blacktriangleright$ Public Key}
     \begin{itemize}
         \item Public Key: $(A, t)$ mit $t = A s + e$
     \end{itemize}
@@ -119,7 +121,7 @@ t = (16x^3 + 15x^2 + 7,\; 10x^3 + 12x^2 + 11x + 6)
 \end{frame}
 
 
-\begin{frame}{Verschlüsseln}
+\begin{frame}{CRYSTALS-Kyber $\blacktriangleright$ Verschlüsseln}
 \[
 u = A^T r + e_1
 \qquad
@@ -157,7 +159,7 @@ v = 7x^3 + 6x^2 + 8x + 15
 \end{frame}
 
 
-\begin{frame}{Entschlüsseln}
+\begin{frame}{CRYSTALS-Kyber $\blacktriangleright$ Entschlüsseln}
 \[
 m_n = v - s^T u
 \]
@@ -182,7 +184,7 @@ m_b = (1011)_2 = (11)_{10}
 \end{frame}
 
 
-\begin{frame}{CRYSTALS-Kyber Parameter}
+\begin{frame}{CRYSTALS-Kyber $\blacktriangleright$ Parameter}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
 \hline
 Name & $n$ & $k$ & $q$ & $\eta_1$ & $\eta_2$ & $d_u$ & $d_v$ & $\delta$ \\
@@ -195,6 +197,7 @@ Kyber1024 & 256 & 4 & 3329 & 2 & 2 & 11 & 5 & $2^{-174}$ \\
 
 \vspace{0.5em}
 
+% TODO: kleiner, 2-spaltig
 \begin{itemize}
     \item $n$: maximaler Grad der Polynome
     \item $k$: Anzahl der Polynome pro Vektor

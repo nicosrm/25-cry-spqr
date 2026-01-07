@@ -1,0 +1,84 @@
+% !TeX root = ../presentation.tex
+
+\setbeamertemplate{frame footer}{
+  \tiny \textbf{Mager}, Rohrbach, Schramm: \insertshorttitle, \insertdate\newline\module, \prof, \semester}
+
+\section{Quantum-Computing}
+
+\begin{frame}{Quantum-Computing $\blacktriangleright$ Grundidee}
+    \begin{itemize}
+        \item Qubits statt klassischer Bits
+        \item Superposition: gleichzeitiger Zustand von 0 und 1
+        \item Verschränkung zwischen Qubits
+        \item Gemeinsame Operationen auf vielen Zuständen
+        \item Interferenz verstärkt korrekte Ergebnisse
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quantum-Computing $\blacktriangleright$  Bedeutung für die Kryptografie}
+    \begin{itemize}
+        \item RSA und ECC gelten heute als sicher
+        \item Sicherheit basiert auf hohem Rechenaufwand
+        \item Quantenalgorithmen sind asymptotisch schneller
+        \item Bisher unlösbare Probleme werden lösbar
+        \item Durchbruch abhängig von Rechnergröße
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quantum-Computing $\blacktriangleright$ Aktueller Stand der Technik}
+    \begin{itemize}
+        \item Spezielle Quantenprogramme bereits schneller
+        \item Geschwindigkeitsvorteile bis zu $13{.}000\times$
+        \item Experimentelle Demonstrationen existieren
+        \item Noch keine praktischen Angriffe auf Kryptosysteme
+        \item Quantenhardware aktuell stark limitiert
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quantum-Computing $\blacktriangleright$ Algorithmischer Kern \& Ausblick}
+    \begin{itemize}
+        \item Shors Algorithmus als zentrale Bedrohung
+        \item Reduktion auf Periodenfindung
+        \item Nutzung von Quanten-Parallelität
+        \item Sehr hoher Bedarf an fehlerkorrigierten Qubits
+        \item Post-Quantum-Kryptografie langfristig notwendig
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quantum-Computing $\blacktriangleright$ Quanten-Sicherheit in Signal \footnotesize\cite{connellSignalProtocolPostQuantum2025, gentyalaQuantumResistanceSignal2025}}
+    \begin{itemize}
+        \item[I.] Absicherung des initialen Handshakes (X3DH) mit \alert{PQXDH}
+        \begin{itemize}
+            \item Schutz vor \emph{Harvest Now, Decrypt Later}-Angriffen
+            \item Hybrider Ansatz: Elliptic Curve + \alert{CRYSTALS-Kyber}
+        \end{itemize}
+
+        \item[II.] Erweiterung von \emph{Forward Secrecy} und \emph{Post-Compromise Security}
+        \begin{itemize}
+            \item Double Ratchet + \alert{SPQR} $\rightarrow$ Triple Ratchet
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quantum-Computing $\blacktriangleright$ Chatablauf} % TODO: Überschrift
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \includegraphics[height=5cm]{./assets/overview_pre-quanten.drawio.pdf}
+                \caption{Prä-Quanten}
+            \end{figure}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \includegraphics[height=5cm]{./assets/overview_post-quanten.drawio.pdf}
+                \caption{Post-Quanten}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}

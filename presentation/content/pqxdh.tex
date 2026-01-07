@@ -3,9 +3,9 @@
 \setbeamertemplate{frame footer}{
   \tiny Mager, Rohrbach, \textbf{Schramm}: \insertshorttitle, \insertdate\newline\module, \prof, \semester}
 
-\section{PQXDH}
+\section{Post Quantum Extended Diffie-Hellman (PQXDH)}
 
-\begin{frame}{PQXDH: Einführung}
+\begin{frame}{PQXDH $\blacktriangleright$ Einführung}
     \begin{itemize}
         \item X3DH anfällig gegenüber Quanten-Computing-Attacken~\cite{kretQuantumResistanceSignal2023,schmidtAnalysisSignalsPQXDH2024}
 
@@ -21,7 +21,7 @@
 \end{frame}
 
 
-\begin{frame}{Rollen im Key Agreement \footnotesize\cite{kretPQXDHKeyAgreement2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ Rollen im Key Agreement \footnotesize\cite{kretPQXDHKeyAgreement2024}}
     \begin{itemize}
         \item \textbf{Alice}: Senden von initialen, verschlüsselten Daten an Bob, Etablierung einer verschlüsselten Kommunikation
         
@@ -32,7 +32,7 @@
 \end{frame}
 
 
-\begin{frame}{Design-Idee \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023, kretQuantumResistanceSignal2023,kretPQXDHKeyAgreement2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ Design-Idee \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023, kretQuantumResistanceSignal2023,kretPQXDHKeyAgreement2024}}
     \begin{itemize}
         \item Erweiterung von X3DH um \emph{PQKEM Encapsulated Shared Secret} ($SS_{\text{KEM}}$)
         
@@ -51,7 +51,7 @@
 \end{frame}
 
 
-\begin{frame}{Phase 1: Veröffentlichung der Keys \footnotesize\cite{kretPQXDHKeyAgreement2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ I. Veröffentlichung der Keys \footnotesize\cite{kretPQXDHKeyAgreement2024}}
     Bob veröffentlicht folgende Keys über den Server:
 
     \begin{tabular}{|l|l|}
@@ -69,7 +69,7 @@
 \end{frame}
 
 
-\begin{frame}{Phase 2: Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ II. Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     % TODO: Legende für Farben
     % TODO: n wegmachen
     \begin{columns}
@@ -91,7 +91,7 @@
 \end{frame}
 
 
-\begin{frame}{Phase 2: Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ II. Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     % TODO: INC --> ENC
     \begin{figure}
         \includegraphics[height=6cm]{assets/pqxdh_complete_alice.drawio.pdf}
@@ -99,14 +99,14 @@
 \end{frame}
 
 
-\begin{frame}{Phase 2: Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ II. Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \begin{figure}
         \includegraphics[height=6cm]{assets/pqxdh_alice_dh_pqkem.drawio.pdf}
     \end{figure}
 \end{frame}
 
 
-\begin{frame}{Phase 2: Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ II. Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \only<beamer>{
         % \framezoom(upper left x,upper left y)(zoom area width,zoom area depth)
         \framezoom<0><1>[border](1.1cm,0.7cm)(8.5cm,3.8cm)
@@ -121,7 +121,7 @@
 \end{frame}
 
 
-\begin{frame}{Phase 3: Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ III. Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     Bob erhält Nachricht von Alice
 
     $(IK_A, EK_A, CT_{\text{KEM}}, \alert{CT_{\text{init}}}, \text{ Identifier})$
@@ -130,14 +130,14 @@
 \end{frame}
 
 
-\begin{frame}{Phase 3: Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ III. Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \begin{figure}
         \includegraphics[height=6cm]{assets/pqxdh_bob_dh_pqkem.drawio.pdf}
     \end{figure}
 \end{frame}
 
 
-\begin{frame}{Phase 3: Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ III. Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \only<beamer>{
         % \framezoom(upper left x,upper left y)(zoom area width,zoom area depth)
         \framezoom<0><1>[border](3.6cm,1.7cm)(8.5cm,3.8cm)
@@ -150,7 +150,7 @@
 \end{frame}
 
 
-\begin{frame}{Sicherheitsanalyse \footnotesize\cite{kretPQXDHKeyAgreement2024, schmidtAnalysisSignalsPQXDH2024}}
+\begin{frame}{PQXDH $\blacktriangleright$ Sicherheitsanalyse \footnotesize\cite{kretPQXDHKeyAgreement2024, schmidtAnalysisSignalsPQXDH2024}}
     % TODO: :Angriffe vorbereiten, erklären können
     \begin{itemize}
         \item formale Verifikation $\to$ Finden von Angriffsmöglichkeiten
