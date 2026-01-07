@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101 Firefox/146.0" version="29.2.10">
+  <diagram name="Page-1" id="18Wot5RHaEbqB-XmtGBt">
+    <mxGraphModel dx="129" dy="-49" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="80" width="200" x="880" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="&lt;font face=&quot;CMU Serif&quot; data-font-src=&quot;https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/font/Serif/cmunrm.woff&quot;&gt;Initial Handshake&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="110" x="925" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=CMU Serif;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;" value="&lt;div&gt;X3DH &amp;amp; CRYSTALS-Kyber =&amp;gt; PQXDH&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="155" x="902.5" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="80" width="200" x="880" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="&lt;font face=&quot;CMU Serif&quot;&gt;Sending Messages&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="110" x="925" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=CMU Serif;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;" value="Double Ratchet &amp;amp; SPQR =&amp;gt; Triple Ratchet" vertex="1">
+          <mxGeometry height="40" width="155" x="902.5" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="80" width="200" x="640" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="&lt;font face=&quot;CMU Serif&quot; data-font-src=&quot;https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/font/Serif/cmunrm.woff&quot;&gt;Initial Handshake&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="110" x="685" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=CMU Serif;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;" value="X3DH" vertex="1">
+          <mxGeometry height="40" width="155" x="662.5" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="80" width="200" x="640" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1" value="&lt;font face=&quot;CMU Serif&quot;&gt;Sending Messages&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="110" x="685" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="WTzQyg6JplhhqGb7G_zJ-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=CMU Serif;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;" value="&lt;div&gt;Diffie-Hellman &amp;amp; Hash&lt;/div&gt;&lt;div&gt;=&amp;gt; Double Ratchet&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="155" x="662.5" y="600" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
