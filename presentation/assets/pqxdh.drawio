@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101 Firefox/146.0" version="29.2.9" pages="2">
   <diagram name="Keys" id="pMHbagUTTmiS-5LH464W">
-    <mxGraphModel dx="2080" dy="849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+    <mxGraphModel dx="2016" dy="855" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -289,7 +289,7 @@
         <mxCell id="8SSH6zOQkcTpYEBJd2hg-45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{ENC} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
           <mxGeometry height="50" width="440" x="1320" y="860" as="geometry" />
         </mxCell>
-        <mxCell id="8SSH6zOQkcTpYEBJd2hg-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{INC/DEC} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
+        <mxCell id="8SSH6zOQkcTpYEBJd2hg-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{ENC/DEC} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
           <mxGeometry height="50" width="360" x="500" y="930" as="geometry" />
         </mxCell>
         <mxCell id="8SSH6zOQkcTpYEBJd2hg-53" edge="1" parent="1" source="8SSH6zOQkcTpYEBJd2hg-51" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;fontSize=12;fontColor=default;labelBackgroundColor=default;endArrow=blockThin;endFill=1;exitX=0.491;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=2;" target="8SSH6zOQkcTpYEBJd2hg-52">
@@ -495,7 +495,7 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-54" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;rounded=1;strokeColor=#666666;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fillColor=#f5f5f5;size=12;fontColor=#333333;" value="&lt;div&gt;$$\text{falls } \texttt{PQKEM }&amp;nbsp;PQPK_B&amp;nbsp;\text{ nicht verwendet,} \\ \text{dann hier einarbeiten}$$&lt;/div&gt;" vertex="1">
           <mxGeometry height="50" width="270" x="335" y="1750" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{INC{\color{grey}/DEC}} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{ENC{\color{grey}/DEC}} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
           <mxGeometry height="50" width="360" x="500" y="1680" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-56" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=CMU Serif;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;fontSize=12;fontColor=#999999;labelBackgroundColor=none;fontStyle=1;opacity=50;" value="Public Keys" vertex="1">
@@ -821,7 +821,7 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-156" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;rounded=1;strokeColor=#666666;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fillColor=#f5f5f5;size=12;fontColor=#333333;" value="&lt;div&gt;$$\text{falls } \texttt{PQKEM }&amp;nbsp;PQPK_B&amp;nbsp;\text{ nicht verwendet,} \\ \text{dann hier einarbeiten}$$&lt;/div&gt;" vertex="1">
           <mxGeometry height="50" width="270" x="352" y="2410" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-157" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{{\color{grey} INC/}DEC} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-157" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{{\color{grey} ENC/}DEC} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
           <mxGeometry height="50" width="360" x="520" y="2340" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-158" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontFamily=CMU Serif;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;fontSize=12;fontColor=#000000;labelBackgroundColor=none;fontStyle=1;" value="Public Keys" vertex="1">
