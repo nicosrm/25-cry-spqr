@@ -11,16 +11,60 @@
 \begin{frame}{Einleitung}
     \begin{itemize}
         \item Abholen von vorherigem Vortrag
-        \item warum PQ-Schutz?, Angriffe nennen
+        \item Warum Post-Quantum-Schutz?
+        \item Motivation durch zukünftige Angriffe
     \end{itemize}
 \end{frame}
 
 
 \begin{frame}{Ablauf Chat}
     \begin{itemize}
-        \item TODO: Grafik Unterscheidung, @nico
-        \item initialer Handshake (X3DH $\to$ PQXDH)
+        \item Initialer Handshake (X3DH $\rightarrow$ PQXDH)
         \item Nachrichten senden (SPQR)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quantencomputing – Grundidee}
+    \begin{itemize}
+        \item Qubits statt klassischer Bits
+        \item Superposition: gleichzeitiger Zustand von 0 und 1
+        \item Verschränkung zwischen Qubits
+        \item Gemeinsame Operationen auf vielen Zuständen
+        \item Interferenz verstärkt korrekte Ergebnisse
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bedeutung für die Kryptografie}
+    \begin{itemize}
+        \item RSA und ECC gelten heute als sicher
+        \item Sicherheit basiert auf hohem Rechenaufwand
+        \item Quantenalgorithmen sind asymptotisch schneller
+        \item Bisher unlösbare Probleme werden lösbar
+        \item Durchbruch abhängig von Rechnergröße
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Aktueller Stand der Technik}
+    \begin{itemize}
+        \item Spezielle Quantenprogramme bereits schneller
+        \item Geschwindigkeitsvorteile bis zu $13{.}000\times$
+        \item Experimentelle Demonstrationen existieren
+        \item Noch keine praktischen Angriffe auf Kryptosysteme
+        \item Quantenhardware aktuell stark limitiert
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Algorithmischer Kern \& Ausblick}
+    \begin{itemize}
+        \item Shors Algorithmus als zentrale Bedrohung
+        \item Reduktion auf Periodenfindung
+        \item Nutzung von Quanten-Parallelität
+        \item Sehr hoher Bedarf an fehlerkorrigierten Qubits
+        \item Post-Quantum-Kryptografie langfristig notwendig
     \end{itemize}
 \end{frame}
 
@@ -29,13 +73,13 @@
     \begin{itemize}
         \item[I.] Absicherung des initialen Handshakes (X3DH) mit \alert{PQXDH}
         \begin{itemize}
-            \item Schutz vor \emph{Harvest Now, Decrypt Later} (HNDL) Attacken
-            \item hybrider Ansatz: Kombination von Ecliptic Curve und \alert{CRYSTALS-Kyber}
+            \item Schutz vor \emph{Harvest Now, Decrypt Later}-Angriffen
+            \item Hybrider Ansatz: Elliptic Curve + \alert{CRYSTALS-Kyber}
         \end{itemize}
 
-        \item[II.] Verbesserung der \emph{Forward Secrecy} und \emph{Post-Compromise Security} %TODO: Erweiterung der FS und PCS?
+        \item[II.] Verbesserung von \emph{Forward Secrecy} und \emph{Post-Compromise Security}
         \begin{itemize}
-            \item \alert{SPQR}: Double Ratchet $\to$ Triple Ratchet
+            \item \alert{SPQR}: Double Ratchet $\rightarrow$ Triple Ratchet
         \end{itemize}
     \end{itemize}
 \end{frame}

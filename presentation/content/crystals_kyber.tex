@@ -6,5 +6,202 @@
 \section{CRYSTALS-Kyber}
 
 \begin{frame}{CRYSTALS-Kyber}
-    
+    \begin{itemize}
+        \item Key Encapsulation Mechanism (KEM)
+        \item Sicherheitsstufen:
+        \begin{itemize}
+            \item Kyber-512
+            \item Kyber-768
+            \item Kyber-1024
+        \end{itemize}
+        \item Empfehlung: hybrider Einsatz mit Pre-Quantum-Verfahren (z.\,B. ECC)
+        \item Basiert auf \emph{Learning With Errors} (LWE) auf Modul-Gittern
+    \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Learning With Errors (LWE) – Grundidee}
+\[
+\begin{pmatrix}
+14 & 15 & 5  & 2 \\
+13 & 14 & 14 & 6 \\
+6  & 10 & 13 & 1 \\
+10 & 4  & 12 & 16
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+s_1 \\
+s_2 \\
+s_3 \\
+s_4
+\end{pmatrix}
+=
+\begin{pmatrix}
+262 \\
+374 \\
+258 \\
+336
+\end{pmatrix}
+\]
+\end{frame}
+
+
+\begin{frame}{Learning With Errors (LWE) – Formalisierung}
+\[
+A =
+\begin{pmatrix}
+14 & 15 & 5  & 2  \\
+13 & 14 & 14 & 6  \\
+6  & 10 & 13 & 1  \\
+10 &  4 & 12 & 16 \\
+9  &  5 & 9  & 6  \\
+3  &  6 & 4  & 5  \\
+6  &  7 & 17 & 2
+\end{pmatrix},
+\quad
+e =
+\begin{pmatrix}
+1 \\ -1 \\ 0 \\ -1 \\ 1 \\ 0 \\ 1
+\end{pmatrix},
+\quad
+s =
+\begin{pmatrix}
+0 \\ 13 \\ 9 \\ 11
+\end{pmatrix}
+\]
+
+\[
+q = 17
+\]
+
+\[
+b = A \cdot s + e \; (\bmod\; q)
+=
+\begin{pmatrix}
+8 \\ 16 \\ 3 \\ 12 \\ 9 \\ 16 \\ 3
+\end{pmatrix}
+\]
+\end{frame}
+
+
+\begin{frame}{Kleines Kyber-Beispiel \footnotesize\cite{Gonzalez2021Kyber}}
+    \begin{itemize}
+        \item Modulus: $q = 17$
+        \item Polynomring: $\mathbb{Z}_{17}[X]/(X^4 + 1)$
+        \item Privater Schlüssel:
+        \[
+        s = (-x^3 - x^2 + x,\; -x^3 - x)
+        \]
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Public Key}
+    \begin{itemize}
+        \item Public Key: $(A, t)$ mit $t = A s + e$
+    \end{itemize}
+
+\[
+A =
+\begin{pmatrix}
+6x^3 + 16x^2 + 16x + 1 & 15x^3 + 3x^2 + 10x + 1 \\
+9x^3 + 4x^2 + 6x + 3  & 6x^3 + x^2 + 9x + 15
+\end{pmatrix}
+\]
+
+\[
+e = (x^2,\; x^2 - x)
+\]
+
+\[
+t = (16x^3 + 15x^2 + 7,\; 10x^3 + 12x^2 + 11x + 6)
+\]
+\end{frame}
+
+
+\begin{frame}{Verschlüsseln}
+\[
+u = A^T r + e_1
+\qquad
+v = t^T r + e_2 + m
+\]
+
+\[
+c = (u,v)
+\]
+
+\textbf{Beispielrechnung:}
+\[
+r = (-x^3 + x^2,\; x^3 + x^2 - 1)
+\]
+\[
+e_1 = (x^2 + x,\; x^2)
+\qquad
+e_2 = -x^3 - x^2
+\]
+
+\[
+m_b = 11_{10} = 1011_2 = x^3 + x + 1
+\]
+
+\[
+m = \left\lfloor \frac{q}{2} \right\rceil \cdot m_b = 9x^3 + 9x + 9
+\]
+
+\[
+u = (11x^3 + 11x^2 + 10x + 3,\; 4x^3 + 4x^2 + 13x + 11)
+\]
+\[
+v = 7x^3 + 6x^2 + 8x + 15
+\]
+\end{frame}
+
+
+\begin{frame}{Entschlüsseln}
+\[
+m_n = v - s^T u
+\]
+
+\[
+m_n = e^T r + e_2 + m + s^T e_1
+\]
+
+\begin{itemize}
+    \item Rauschen ist enthalten
+    \item Rundung auf $\left\lfloor \frac{q}{2} \right\rceil$ oder $q$
+\end{itemize}
+
+\[
+m_b = \frac{1}{9}(9x^3 + 0x^2 + 9x + 9)
+      = x^3 + x + 1
+\]
+
+\[
+m_b = (1011)_2 = (11)_{10}
+\]
+\end{frame}
+
+
+\begin{frame}{CRYSTALS-Kyber Parameter}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+Name & $n$ & $k$ & $q$ & $\eta_1$ & $\eta_2$ & $d_u$ & $d_v$ & $\delta$ \\
+\hline\hline
+Kyber512  & 256 & 2 & 3329 & 3 & 2 & 10 & 4 & $2^{-139}$ \\
+Kyber768  & 256 & 3 & 3329 & 2 & 2 & 10 & 4 & $2^{-164}$ \\
+Kyber1024 & 256 & 4 & 3329 & 2 & 2 & 11 & 5 & $2^{-174}$ \\
+\hline
+\end{tabular}
+
+\vspace{0.5em}
+
+\begin{itemize}
+    \item $n$: maximaler Grad der Polynome
+    \item $k$: Anzahl der Polynome pro Vektor
+    \item $q$: Modulus
+    \item $\eta_1, \eta_2$: Begrenzen die Größe der Fehlerterme
+    \item $d_u, d_v$: Kompressionsparameter
+    \item $\delta$: Wahrscheinlichkeit einer Fehlentschlüsselung
+\end{itemize}
+\end{frame}
+
