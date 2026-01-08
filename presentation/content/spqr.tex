@@ -5,17 +5,17 @@
 
 \section{Sparse Post Quantum Ratchet (SPQR)}
 
-\begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security}
+\begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \cite{connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
         \item Aktueller Stand soll bei behalten werden
-        \item FS und PCS durch CKA
+        \item FS und PCS mittels CKA
         \begin{itemize}
-            \item Verwenden von KEM
+            \item Verwenden von ML-KEM
         \end{itemize}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Bandbreiten Limitierung}
+\begin{frame}{SPQR $\blacktriangleright$ Bandbreiten Limitierung \cite{auerbachHowCompareBandwidth2025, connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
         \item Idee 1: Wie aktuell mit jeder Nachricht neu vereinbaren
         % Grafik für 71x so groß
@@ -26,7 +26,7 @@
         \begin{itemize}
             \item Verwendet von PQ3
             \item Probleme bei asynchroner Kommunikation
-            \item Angriffsmöglichkeit $\Rightarrow$ Verhindern ein neues Geheimnis aufzustellen
+            \item Angriffsmöglichkeit $\Rightarrow$ Verhindern neues Geheimnis
         \end{itemize}
         \item Idee 3: Austausch aufteilen
         \begin{itemize}
@@ -35,34 +35,48 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Erasure Codes}
+\begin{frame}{SPQR $\blacktriangleright$ Erasure Codes \cite{dodisTripleRatchetBandwidth2025, connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
-        \item Aufteilen in \emph{Chunks}
-        \item alle $N$ Chunks ausreichend die Nachricht zusammenzustellen
+        \item Aufteilen von Nachricht $M$ in \emph{Chunks}
+        \item alle $n$ Chunks ausreichend um Nachricht zusammenzustellen
         \begin{itemize}
-            \item[$\Rightarrow$] Nur auffälliger DOS Angriffe möglich um neue Geheimnis zu verhindern
+            \item[$\Rightarrow$] Nur auffälliger DOS Angriff ab $n-1$ Nachrichten verhindert neues Geheimnis
         \end{itemize}
-        \item ...
+        % \item An erasure code for a set of symbols Σ, a block length N , and a message size nchunk consists of PPT algorithms Encode, Decode defined as follows: Encode(M, i) → c : It takes as input a message M ∈ Σnchunk , and an integer i ∈ ZN and outputs symbol c ∈ Σ. Decode(L) → M : It takes as input a set L ⊂ ZN × Σ and outputs either a message M ∈ Σnchunk or the symbol ⊥. An erasure code is said to be correct if for all messages M ∈ Σnchunk , for all I ⊂ ZN and L = {(i, Encode(M, i) | i ∈ I)} we have that Decode(L, nchunk) = M if |I| = nchunk and Decode(L, nchunk) = ⊥ if |I| < nchunk.
+        % \item \emph{Reed-Solomon erasure codes}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Kapazität}
-% Grafiken
+\begin{frame}{SPQR $\blacktriangleright$ Kapazität I \cite{connellSignalProtocolPostQuantum2025}}
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-1.png}
+    \end{figure}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Sparse Post Quantum Ratchet}
+\begin{frame}{SPQR $\blacktriangleright$ Kapazität II \cite{connellSignalProtocolPostQuantum2025}}
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/capacity II.drawio.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{SPQR $\blacktriangleright$ Sparse Post Quantum Ratchet \cite{connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
         \item ML-KEM
         \begin{itemize}
-            \item ...
+            \item Aufbrechen in $EK = EK1 + EK2$ und $CT = CT1 + CT$
             \item[$\Rightarrow$] ML-KEM Braid
         \end{itemize}
         \item[$\Rightarrow$] \emph{Sparse Post Quantum Ratchet}
-        % Grafik
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Triple Ratchet}
+\begin{frame}{SPQR $\blacktriangleright$ Sparse Post Quantum Ratchet \cite{connellSignalProtocolPostQuantum2025}}
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-2.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Triple Ratchet \cite{connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
         \item Aktuelle Sicherheit behalten
         \begin{itemize}
@@ -70,19 +84,18 @@
         \end{itemize}
         \item Erweiterung des \emph{Double Ratchet} um SPQR
         \begin{itemize}
-            \item Mixen des Outputs mit einer \emph{Key Derivation Function}
+            \item Mixen des Outputs mittels \emph{Key Derivation Function}
         \end{itemize}
     \end{itemize}
 \end{frame}
 
-% Gehört nur so halb hier rein
-\begin{frame}{Rollout}
+\begin{frame}{Rollout \cite{connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
         \item Update nicht bei allen zeitgleich möglich $\rightarrow$ keine Kommunikation mehr möglich
         \item Erlauben von \emph{Downgrades}
         \begin{itemize}
             \item Mitsenden von SPQR Data ohne Schlüsselmaterial in der Nachricht
-            \item Wenn die Antwort nicht SPQR verwendet mit altem Standard weiter kommunizieren
+            \item Antwort nicht SPQR  $\rightarrow$  mit altem Standard weiter kommunizieren
         \end{itemize}
         \item Angriffsmöglichkeit?
         \begin{itemize}
