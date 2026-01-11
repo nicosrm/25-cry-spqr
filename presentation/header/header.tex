@@ -10,8 +10,6 @@
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
 
-\setbeamertemplate{frame footer}{
-  \tiny\insertshortauthor: \insertshorttitle, \insertdate\newline\module, \prof, \semester}
 
 % hide roman numbering on first frame with `allowframebreak`
 \setbeamertemplate{frametitle continuation}[from second][\insertcontinuationcountroman]
@@ -40,3 +38,27 @@
 \input{header/metadata}
 
 \renewcommand{\arraystretch}{1.3}
+
+\newcommand{\setFooterToNeutral}{%
+  \setbeamertemplate{frame footer}{%
+    \tiny\insertshortauthor: \insertshorttitle, \insertdate\newline\module, \prof, \semester
+  }
+}
+
+\newcommand{\setFooterToMager}{%
+  \setbeamertemplate{frame footer}{%
+    \tiny \textbf{Mager}, Rohrbach, Schramm: \insertshorttitle, \insertdate\newline\module, \prof, \semester
+  }
+}
+
+\newcommand{\setFooterToRohrbach}{%
+  \setbeamertemplate{frame footer}{%
+    \tiny Mager, \textbf{Rohrbach}, Schramm: \insertshorttitle, \insertdate\newline\module, \prof, \semester
+  }
+}
+
+\newcommand{\setFooterToSchramm}{%
+  \setbeamertemplate{frame footer}{%
+    \tiny Mager, Rohrbach, \textbf{Schramm}: \insertshorttitle, \insertdate\newline\module, \prof, \semester
+  }
+}
