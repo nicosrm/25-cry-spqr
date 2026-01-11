@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101 Firefox/146.0" version="29.2.9" pages="2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:146.0) Gecko/20100101 Firefox/146.0" version="29.3.0" pages="2">
   <diagram name="Keys" id="pMHbagUTTmiS-5LH464W">
-    <mxGraphModel dx="2016" dy="855" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+    <mxGraphModel dx="2080" dy="849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -97,7 +97,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="8tYoktuxdl_c_Nm-IBfq-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="8tYoktuxdl_c_Nm-IBfq-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="210" y="580" as="geometry" />
         </mxCell>
         <mxCell id="8tYoktuxdl_c_Nm-IBfq-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="$$\text{Sig}(IK_B, \text{EncodeEC}(SPK_B))$$" vertex="1">
@@ -176,7 +176,7 @@
         <mxCell id="8tYoktuxdl_c_Nm-IBfq-78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="$$SPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="1050" y="780" as="geometry" />
         </mxCell>
-        <mxCell id="8tYoktuxdl_c_Nm-IBfq-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="8tYoktuxdl_c_Nm-IBfq-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="920" y="780" as="geometry" />
         </mxCell>
         <mxCell id="8tYoktuxdl_c_Nm-IBfq-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="$$PQ\boldsymbol{P}K_B$$" vertex="1">
@@ -209,7 +209,7 @@
         <mxCell id="8SSH6zOQkcTpYEBJd2hg-28" edge="1" parent="1" source="8SSH6zOQkcTpYEBJd2hg-9" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;fontSize=12;fontColor=default;labelBackgroundColor=default;endArrow=blockThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" target="8SSH6zOQkcTpYEBJd2hg-23">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="8SSH6zOQkcTpYEBJd2hg-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="8SSH6zOQkcTpYEBJd2hg-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="120" x="1640" y="600" as="geometry" />
         </mxCell>
         <mxCell id="8SSH6zOQkcTpYEBJd2hg-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" value="$$DH_1$$" vertex="1">
@@ -398,7 +398,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="210" y="1520" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="$$\text{Sig}(IK_B, \text{EncodeEC}(SPK_B))$$" vertex="1">
@@ -477,7 +477,7 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;fontColor=#999999;" value="$$SPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="1050" y="1530" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;opacity=50;fontColor=#999999;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;opacity=50;fontColor=#999999;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="920" y="1530" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-48" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=50;fontColor=#999999;" value="$$PQ\boldsymbol{P}K_B$$" vertex="1">
@@ -533,7 +533,7 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-68" edge="1" parent="1" source="vVUMNwSKDGGTmua1LyK2-69" style="edgeStyle=orthogonalEdgeStyle;shape=connector;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;fontSize=12;fontColor=default;labelBackgroundColor=default;endArrow=blockThin;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" target="vVUMNwSKDGGTmua1LyK2-82">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="120" x="1960" y="1400" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-70" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" value="$$DH_1$$" vertex="1">
@@ -595,11 +595,8 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-85" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=10;fontColor=default;" value="&lt;font face=&quot;Helvetica&quot;&gt;$$SK = \text{KDF}({\color{green} DH_1 \circ DH_2 \circ DH_3 {\color{grey} \circ DH_4}} \circ {\color{purple} SS_{\text{KEM}}})$$&lt;/font&gt;" vertex="1">
           <mxGeometry height="30" width="280" x="1720" y="1540" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-86" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{ENC} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-86" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="$$\texttt{ENC{\color{grey}/DEC}} \text{ von } CT_{\text{init}} \text{ mittels } SK ~\&amp;amp;~ AD $$" vertex="1">
           <mxGeometry height="50" width="440" x="1640" y="1660" as="geometry" />
-        </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-87" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=CMU Serif;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;fontSize=17;fontColor=default;labelBackgroundColor=none;fontStyle=1;rotation=-90;" value="$$\textbf{Initiator:in (Alice)}$$" vertex="1">
-          <mxGeometry height="30" width="160" x="1510" y="1480" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-88" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=CMU Serif;fontSource=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fbitmaks%2Fcm-web-fonts%40latest%2Ffont%2FSerif%2Fcmunrm.woff;fontSize=12;fontColor=default;labelBackgroundColor=none;fillColor=none;gradientColor=none;arcSize=4;" value="" vertex="1">
           <mxGeometry height="310" width="320" x="-490" y="740" as="geometry" />
@@ -636,7 +633,7 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-99" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="$$SPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="-290" y="940" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-100" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-100" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="-420" y="940" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-101" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="$$\text{Sig}(IK_B, \text{EncodeEC}(SPK_B))$$" vertex="1">
@@ -730,7 +727,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-124" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;fontColor=#999999;opacity=50;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-124" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;fontColor=#999999;opacity=50;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="230" y="2180" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-125" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#999999;opacity=50;" value="$$\text{Sig}(IK_B, \text{EncodeEC}(SPK_B))$$" vertex="1">
@@ -806,7 +803,7 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-148" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="$$SPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="1070" y="2190" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-149" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;fontColor=#000000;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-149" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;fontColor=#000000;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="110" x="940" y="2190" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-150" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="$$PQ\boldsymbol{P}K_B$$" vertex="1">
@@ -1047,7 +1044,7 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-240" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="$$SPK_B$$" vertex="1">
           <mxGeometry height="40" width="120" x="1960" y="1930" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-241" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-241" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="120" x="1960" y="1990" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-242" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" value="$$DH_1$$" vertex="1">
@@ -1110,7 +1107,7 @@
         <mxCell id="vVUMNwSKDGGTmua1LyK2-259" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="$$SPK_B$$" vertex="1">
           <mxGeometry height="40" width="120" x="1960" y="2300" as="geometry" />
         </mxCell>
-        <mxCell id="vVUMNwSKDGGTmua1LyK2-260" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B^n$$" vertex="1">
+        <mxCell id="vVUMNwSKDGGTmua1LyK2-260" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=hatch;strokeWidth=1;gradientDirection=east;glass=0;perimeterSpacing=0;sketch=1;curveFitting=0;jiggle=0;fillWeight=2;hachureGap=5;dashOffset=0;dashGap=0;zigzagOffset=0;hachureAngle=-60;disableMultiStroke=0;disableMultiStrokeFill=0;" value="$$OPK_B$$" vertex="1">
           <mxGeometry height="40" width="120" x="1960" y="2360" as="geometry" />
         </mxCell>
         <mxCell id="vVUMNwSKDGGTmua1LyK2-261" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" value="$$DH_1$$" vertex="1">
