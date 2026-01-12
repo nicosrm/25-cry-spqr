@@ -17,21 +17,27 @@
 \newcommand{\university}{Hochschule für Technik, Wirtschaft und Kultur Leipzig}
 \newcommand{\semester}{WiSe 2025/26}
 
-\institute{\module\\
-  \prof\\~\\
-  \faculty\\
-  \university}
-
 \newcommand{\repourl}{https://github.com/nicosrm/25-cry-spqr}
+\newcommand{\githubHandle}{nicosrm/25-cry-spqr}
+
+\institute{%
+    \setlength\parindent{-6pt}
+    \begin{tabular}{ll}
+        \module & \faculty\\
+        \prof   & \university\\[2pt]
+        \ccbysa & \href{\repourl}{\faicon{github} \githubHandle}
+    \end{tabular}
+    \vspace{-1em}
+}
 
 \hypersetup{
-  % PDF metadata
-  pdfauthor={Max Mager, Ines Rohrbach, Nico Schramm},
-  pdftitle={Signals Sparse Post Quantum Ratchet},
-  pdfsubject={Präsentation},
-  % hyperref colouring
-  colorlinks,
-  allcolors=.,
-  urlcolor=blue,
-  citecolor=cyan
+    % PDF metadata
+    pdfauthor={Max Mager, Ines Rohrbach, Nico Schramm},
+    pdftitle={Post-Quanten-Kryptografie in Signal},
+    pdfsubject={Präsentation},
+    % hyperref colouring
+    colorlinks,
+    allcolors=.,
+    urlcolor=blue,
+    citecolor=cyan
 }
