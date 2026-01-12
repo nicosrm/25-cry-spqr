@@ -9,23 +9,15 @@
         \item X3DH anfällig gegenüber Quanten-Computing-Attacken~\cite{kretQuantumResistanceSignal2023,schmidtAnalysisSignalsPQXDH2024}
 
         \item Ziel: Verhinderung von \emph{Harvest Now, Decrypt Later} Attacken (HNDL)
-        % TODO: kurz erklären
 
         \pause
 
         \item Hinzufügen von PQ-Sicherheit zum \emph{Handshake}~\cite{schmidtAnalysisSignalsPQXDH2024}\\
             $\Rightarrow$ Erweiterung von X3DH~\cite{bhargavanAnalysisSignalsPQXDH2023, kretQuantumResistanceSignal2023}
-        \note<2>{
-            PQ-Sicherheit
-            \begin{itemize}
-                \item Output muss für O\&E zufällig aussehen $\to$ zufällig aussehende Keys $\Rightarrow$ HNDL-Schutz
-                \item zukünftig: Schutz der Ratchet (Teaser: SQPR)
-            \end{itemize}
-        }
         
         \item Kombination von bisherigem Ecliptic Curve (EC) und CRYSTALS-Kyber
         \note<2>{
-            Erweiterung von X3DH
+            Kombination
             \begin{itemize}
                 \item Einfügen eines Quanten-sicheren \emph{Shared Keys}, vgl. CRYSTALS-Kyber
                 \item Kombination mit klassischem X3DH $\to$ beide Systeme müssen geknackt werden
@@ -47,22 +39,20 @@
     \end{itemize}
 
     \note{
+        eigentlich aus vorherigem Vortrag
         \begin{itemize}
-            \item Alice
+            \item Alice: Senden von initialen, verschlüsselten Daten an Bob
             \begin{itemize}
-                \item Senden von initialen, verschlüsselten Daten an Bob
                 \item Etablierung eines Shared Key → Verwendung für bidirektionale Kommunikation
             \end{itemize}
             
-            \item Bob
+            \item Bob: möchte es Parteien wie Alice erlauben, dass Shared Key etabliert und verschlüsselte Daten gesendet werden
             \begin{itemize}
-                \item möchte es Parteien wie Alice erlauben, dass Shared Key etabliert und verschlüsselte Daten gesendet werden
                 \item ggf. offline, wenn Alice dies versucht → Beziehung zu einem Server
             \end{itemize}
             
-            \item Server
+            \item Server: Speicherung von Nachrichten von Alice an Bob; späterer Abruf durch Bob
             \begin{itemize}
-                \item Speicherung von Nachrichten von Alice an Bob; späterer Abruf durch Bob
                 \item Veröffentlichung von Daten von Bob, welche Alice zur Verfügung gestellt werden
             \end{itemize}
 
@@ -76,7 +66,6 @@
         \item Erweiterung von X3DH um \emph{PQKEM Encapsulated Shared Secret} ($SS_{\text{KEM}}$)
         
         \item Verwendung von $SS_{\text{KEM}}$ und Diffie-Hellman-Werten $DH_{\{1,\ldots,4\}}$ aus X3DH in\\\emph{Key Derivation Function} (KDF)
-        % TODO: Erklärung, evtl. hier oder bei Triple Ratchet oder gar nicht
         
         \item Kombination der Outputs beider Algorithmen $\to$ Umgehen beider Systeme notwendig
     \end{itemize}
@@ -116,7 +105,7 @@
         \begin{itemize}
             \item ähnliche Keys zu X3DH
             \item neue Äquivalente für PQKEM
-            \item $PQSPK_B$ als \textbf{Last Resort} -- nur, wenn keine $PQOPK$ mehr verfügbar sind
+            \item $PQSPK_B$ als \textbf{Last Resort}
         \end{itemize}
     }
 \end{frame}
@@ -130,7 +119,7 @@
 
     \note{
         \begin{itemize}
-            \item Gesamt-Prozess für Phase II.
+            \item Gesamt-Prozess für Phase II. \& III.
             \item Prekey-Bundle $\to$ PQXDH-Berechnung $\to$ initiale Nachricht
             \item gehen Schritt für Schritt durch, fangen bei Prekey Bundle an (zeigen)
         \end{itemize}
@@ -165,7 +154,7 @@
                 \item entsprechender Key: $PQ\boldsymbol{P}K_B$
                 \item später: falls keine OTP verfügbar, im Protokoll berücksichtigen
             \end{itemize}
-            \item Server löscht OTPs anschließend $\to$ \emph{signle use}
+            \item Server löscht OTPs anschließend $\to$ \emph{single use}
             \item Alice verifiziert Signaturen der Prekeys; Abbruch bei Fehlschlag
         \end{itemize}
     }
@@ -179,7 +168,8 @@
 
     \note{
         \begin{itemize}
-            \item Generierung eines Ephemeral EC Schlüsselpaares mit Public Key $EK_A$, Berechnung DH-Werte (vgl. X3DH)
+            \item Generierung eines Ephemeral EC Schlüsselpaares mit Public Key $EK_A$,\\
+                Berechnung DH-Werte (vgl. X3DH)
             \item wie zuvor: falls Prekey-Bundle keinen $OPK_B$ (EC OTP) hat, dann kein $DH_4$
             \item NEU: Generierung eines \emph{Shared Secrets} $SS_{\text{KEM}}$ und Ciphertext $CT_{\text{KEM}}$ aus $PQPK_B$
         \end{itemize}
@@ -205,9 +195,9 @@
     
     \note<2>{
         \begin{itemize}
-            \item berechnete Werte $DH_{\{1,\ldots,4\}}$ und $SK_{\text{KEM}}$ in KDF $\Rightarrow$ Output: \emph{Shared Key} $SK$
+            \item berechnete Werte $DH_{\{1,\ldots,4\}}$ und $SS_{\text{KEM}}$ in KDF $\Rightarrow$ Output: \emph{Shared Key} $SK$
             \begin{itemize}
-                \item falls kein $OTP_B$ und damit kein $DH_4$, dann hier weglassen
+                \item falls kein $OPK_B$ und damit kein $DH_4$, dann hier weglassen
             \end{itemize}
         \end{itemize}
     }
@@ -220,13 +210,13 @@
                 \item ggf. $\text{EncodeKEM}(PQPK_B)$ dranhängen, falls $PQPK_B$ nicht im Ciphertext $CT_{\text{KEM}}$ vearbeitet wird
                 \begin{itemize}
                     \item d.h. kodierter Public Key als Bytesequenz
-                    \item Warum? $\to$ Verhinderung einer \emph{KEM Re-Enapsulation} Attacke (vgl. \cite{bhargavanAnalysisSignalsPQXDH2023,schmidtAnalysisSignalsPQXDH2024})
+                    \item Warum? $\to$ später
                 \end{itemize}
 
                 \item optional: weiter Infos dranhängen
             \end{itemize}
 
-            \item Verschlüsselung eines neuen Ciphertexts $CT_{init}$ unter Verwendung von $SK$ und $AD$
+            \item Verschlüsselung der Daten als $CT_{init}$ unter Verwendung von $SK$ und $AD$
         \end{itemize}
     }
 
@@ -241,7 +231,6 @@
                 \item Identifier für verwendete Keys
             \end{itemize}
 
-            \item Alice: Löschen von $CT_{\text{KEM}}$
             \item Abschluss von Phase II.
         \end{itemize}
     }
@@ -296,10 +285,10 @@
     }
     \note<2>{
         \begin{itemize}
-            \item Wdh. der KDF- und AD-Berechnungen $\Rightarrow$ Berechnung von Shared Key $SK$ sowie Associated Data $AD$
+            \item Wdh. der KDF- und AD-Berechnungen\\
+                $\Rightarrow$ Berechnung von Shared Key $SK$ sowie Associated Data $AD$
             \item Verwendung zum Entschlüsseln von $CT_{\text{init}}$
             \item wenn Ciphertext erfolgreich entschlüsselt, dann erfolgreicher Abschluss des Protokolls
-            \item Forward Secrecy: löschen vom Ciphertext und allen verwendeten OTPs
         \end{itemize}
     }
 \end{frame}
@@ -329,17 +318,6 @@
             \item versch. Möglichkeiten in erster Revision gefunden und behoben
             \item Hinzufügen von PQ-Schutz mehr als nur Einbringen von PQ-Krpto, viele \emph{Pitfalls}
             \item hier nur Auswahl an Attacken
-        \end{itemize}
-
-        \hrule
-
-        \begin{itemize}
-            \color{gray}
-            \item Kompromittierung von einem $PQPK_B^{\color{red} x}$
-            \item O\&E als Man-in-the-Middle: tauschen $PQPK_B$ durch $PQPK_B^{\color{red} comp}$ aus
-            \item bei Abfrage des Prekey-Bundles: Austausch von $PQPK_B$ mit $PQPK_B^{\color{red} comp}$
-            \item A $\to$ B: Entschlüsseln, Austausch vom Ciphertext, Verschlüsseln mit $PQPK_B^{\color{red} comp}$, Senden der kompromittierten Nachricht an Bob
-            \item Fix: KEM muss Public Key des Empfängers beinhalten, sonst Hinzufügen bei $AD$
         \end{itemize}
     }
 

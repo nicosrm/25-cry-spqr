@@ -1,0 +1,19 @@
+% !TeX root = ../presentation.tex
+
+\begin{frame}<1|handout:0>{Key Re-Encapsulation Attack \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,schmidtAnalysisSignalsPQXDH2024}}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{assets/schmidt_pqxdh_kem_reencapsulation_attack.png}
+        \caption{Key Re-Encapsulation Attack \cite{schmidtAnalysisSignalsPQXDH2024}}
+    \end{figure}
+    \vspace{-0.8cm}
+
+    \note{
+        \begin{itemize}
+            \item Kompromittierung von einem $PQPK_B^{\color{red} x}$
+            \item O\&E als Man-in-the-Middle: tauschen $PQPK_B$ durch $PQPK_B^{\color{red} comp}$ aus
+            \item bei Abfrage des Prekey-Bundles: Austausch von $PQPK_B$ mit $PQPK_B^{\color{red} comp}$
+            \item A $\to$ B: Entschlüsseln, Austausch vom Ciphertext, Verschlüsseln mit $PQPK_B^{\color{red} comp}$, Senden der kompromittierten Nachricht an Bob
+            \item Fix: KEM muss Public Key des Empfängers beinhalten, sonst Hinzufügen bei $AD$ (vgl. \cite{bhargavanAnalysisSignalsPQXDH2023,schmidtAnalysisSignalsPQXDH2024})
+        \end{itemize}
+    }
+\end{frame}
