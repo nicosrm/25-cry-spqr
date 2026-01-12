@@ -1,4 +1,16 @@
-# Signal Protocol and Post-Quantum Ratchets
+# Post-Quanten-Kryptografie in Signal
+
+Vortrag im Modul _C179 Kryptologie_ über den aktuellen Stand von Post-Quanten-Kryptografie in Signal.
+
+## Gliederung
+
+1. Einleitung
+2. Quantum-Computing
+3. CRYSTALS-Kyber
+4. Post-Quantum Extended Diffie Hellman (PQXDH)
+5. Sparse Post Quantum Ratchet (SPQR)
+6. Fazit
+7. Literatur
 
 ## Kontext
 
