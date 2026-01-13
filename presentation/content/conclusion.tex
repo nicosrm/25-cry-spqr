@@ -1,20 +1,20 @@
 % !TeX root = ../presentation.tex
 
-\setFooterToNeutral % TODO: wer übernimmt das?
-
-\section{Fazit}
-
 \begin{frame}{Fazit}
-  \begin{itemize}
-      \item[I.] Absicherung des initialen Handshakes (X3DH) mit \alert{PQXDH}
-      \begin{itemize}
-          \item Schutz vor \emph{Harvest Now, Decrypt Later}-Angriffen
-          \item Hybrider Ansatz: Elliptic Curve + \alert{CRYSTALS-Kyber}
-      \end{itemize}
+    \begin{itemize}
+        \item Quantum-Computing: bisher \enquote{schwierige} Probleme einfacher lösbar\\
+            $\Rightarrow$ Post-Quanten-Sicherheit langfristig notwendig
+        
+        \item PQ-sicherer Handshake mittels \alert{PQXDH}
+        \begin{itemize}
+            \item Erweiterung von X3DH um \alert{CRYSTALS-Kyber}
+            \item Schutz vor Harvest Now, Decrypt Later Attacken
+        \end{itemize}
 
-      \item[II.] Erweiterung von \emph{Forward Secrecy} und \emph{Post-Compromise Security}
-      \begin{itemize}
-          \item Double Ratchet + \alert{SPQR} $\rightarrow$ Triple Ratchet
-      \end{itemize}
-  \end{itemize}
+        \item Erweiterung der Double Ratchet um \alert{SPQR} $\to$ Triple Ratchet
+        \begin{itemize}
+            \item regelmäßiger Key-Austausch
+            \item PQ-sicherer Forward Secrecy und Post-Compromise Security
+        \end{itemize}
+    \end{itemize}
 \end{frame}
