@@ -6,28 +6,69 @@
 
 \begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \cite{connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
-        \item Aktueller Stand soll bei behalten werden
-        \item FS und PCS mittels CKA
+        % \item Aktueller Stand/Sicherheit soll bei behalten werden
+        \item FS und PCS mittels \emph{Continues Key Agreement} (CKA)
         \begin{itemize}
-            \item Verwenden von ML-KEM
+            \item Verwenden von \emph{Module-Lattice-Based Key-Encapsulation Mechanism} (ML-KEM)
         \end{itemize}
     \end{itemize}
+
+    \pause
+
+    \textbf{ML-KEM}
+    \begin{itemize}
+        \item A, with every message she sends, sends an EK
+        \item B, with every message he receives, generates a secret and a CT, and sends the CT back
+        \item A, on receiving a CT, extracts the secret with her DK and mixes it in
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{SPQR $\blacktriangleright$ Problematik \cite{connellSignalProtocolPostQuantum2025}}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \only{
+            \begin{itemize}
+                \item ML-KEM basiert auf geordnetem asymmetrischem Austausch
+                    \begin{itemize}
+                        \item \emph{State Machine}
+                    \end{itemize}
+            \end{itemize}
+            }<1-4>
+            \only{
+            \begin{itemize}
+                \item EK und CT sehr groß
+                \begin{itemize}
+                    \item Nachricht zu groß\\$\Rightarrow$ langsame Performance und hoher Datenverbrauch
+                \end{itemize}   
+            \end{itemize}
+            }<3-4>
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \only{
+            \begin{figure}
+                \includegraphics[height=4.5cm]{assets/connellSignalProtocolPostQuantum2025_state.png}
+            \end{figure}
+            }<2-4>
+        \end{column}
+    \end{columns}
+    \only{
+    \begin{figure}
+        \includegraphics[width=\textwidth]{assets/size.pdf}
+    \end{figure}
+    }<4>
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ Bandbreiten Limitierung \cite{auerbachHowCompareBandwidth2025, connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
-        \item Idee 1: Wie aktuell mit jeder Nachricht neu vereinbaren
-        % Grafik für 71x so groß
-        \begin{itemize}
-            \item Nachricht zu groß $\Rightarrow$ langsame Performance und hoher Datenverbrauch
-        \end{itemize}
-        \item Idee 2: Alle 50 Nachrichten oder einmal pro Woche
+        
+        \item Idee 1: Alle 50 Nachrichten oder einmal pro Woche
         \begin{itemize}
             \item Verwendet von PQ3
             \item Probleme bei asynchroner Kommunikation
             \item Angriffsmöglichkeit $\Rightarrow$ Verhindern neues Geheimnis
         \end{itemize}
-        \item Idee 3: Austausch aufteilen
+        \item Idee 2: Austausch aufteilen
         \begin{itemize}
             \item[$\Rightarrow$] \emph{Erasure Codes}
         \end{itemize}
@@ -60,11 +101,30 @@
 
 \begin{frame}{SPQR $\blacktriangleright$ Sparse Post Quantum Ratchet \cite{connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
-        \item ML-KEM
-        \begin{itemize}
-            \item Aufbrechen in $EK = EK1 + EK2$ und $CT = CT1 + CT$
-            \item[$\Rightarrow$] ML-KEM Braid
-        \end{itemize}
+        \item A generates an EK of 1184 bytes to send to B, and an associated DK
+        \item B receives the EK
+        \item B samples a new shared secret (32 bytes), which he encrypts with EK into a CT of 1088 bytes to send to A
+        \item A receives the CT, uses the DK to decrypt it, and now also has access to the 32 byte shared secret
+    \end{itemize}
+    \pause
+    \textbf{ML-KEM Braid}
+    \begin{itemize}
+        \item Aufbrechen in $EK = EK1 + EK2$ und $CT = CT1 + CT2$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{SPQR $\blacktriangleright$ Sparse Post Quantum Ratchet \cite{connellSignalProtocolPostQuantum2025}}
+    \begin{itemize}
+        \item A generates EK and DK. A extracts the 32-byte Seed from EK
+        \item A sends 64 bytes EK1 (Seed + Hash(EK)) to B. B sends nothing during this time.
+        \item B receives the Seed and Hash, and generates the first, largest part of the CT from them (CT1)
+        \item After this point, A sends EK2 (the rest of the EK minus the Seed), while B sends CT1
+        \item B eventually receives EK2, and uses it to generate the final portion of the CT (CT2)
+        \item Once A tells B that she has received all of CT1, B sends A CT2. A sends nothing during this time.
+        \item With both sides having all of the pieces of EK and the CT that they need, they extract their shared secret and increment their epoch
+    \end{itemize}
+    \pause
+    \begin{itemize}
         \item[$\Rightarrow$] \emph{Sparse Post Quantum Ratchet}
     \end{itemize}
 \end{frame}
