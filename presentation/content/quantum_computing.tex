@@ -50,13 +50,13 @@
 
 \begin{frame}{Quantum-Computing $\blacktriangleright$ Quanten-Sicherheit in Signal \footnotesize\cite{connellSignalProtocolPostQuantum2025, gentyalaQuantumResistanceSignal2025}}
     \begin{itemize}
+        \item Schutz vor \emph{Harvest Now, Decrypt Later}-Angriffen
         \item[I.] Absicherung des initialen Handshakes (X3DH) mit \alert{PQXDH}
         \begin{itemize}
-            \item Schutz vor \emph{Harvest Now, Decrypt Later}-Angriffen
             \item Hybrider Ansatz: Elliptic Curve + \alert{CRYSTALS-Kyber}
         \end{itemize}
 
-        \item[II.] Erweiterung von \emph{Forward Secrecy} und \emph{Post-Compromise Security}
+        \item[II.] Erweiterung von \emph{Forward Secrecy} (FS) und \emph{Post-Compromise Security} (PCS)
         \begin{itemize}
             \item Double Ratchet + \alert{SPQR} $\rightarrow$ Triple Ratchet
         \end{itemize}
