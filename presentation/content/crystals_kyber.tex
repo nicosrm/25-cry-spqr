@@ -4,19 +4,24 @@
 
 \section{CRYSTALS-Kyber}
 
+% TODO Quelle WIkipedia https://en.wikipedia.org/wiki/Key_encapsulation_mechanism einfügen für Bilder
 \begin{frame}{CRYSTALS-Kyber}
-    \begin{itemize}
-        \item Key Encapsulation Mechanism (KEM) % TODO: Einführung des Begriffs, ggf. Grafik
-        
-        \item Sicherheitsstufen: % TODO: kürzen / weg
-        \begin{itemize}
-            \item Kyber-512
-            \item Kyber-768
-            \item Kyber-1024
-        \end{itemize}
-        \item Empfehlung: hybrider Einsatz mit Pre-Quantum-Verfahren (z.\,B. ECC)
-        \item Basiert auf \emph{Learning With Errors} (LWE) auf Modul-Gittern
-    \end{itemize}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Key Encapsulation Mechanism (KEM)
+                \item Empfehlung: hybrider Einsatz mit Pre-Quantum-Verfahren (z.\,B. ECC)
+                \item Basiert auf \emph{Learning With Errors} (LWE) auf Modul-Gittern
+            \end{itemize}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{assets/PublicKeyEncryption.png}
+            \vspace{0.5em}
+            \includegraphics[width=\textwidth]{assets/KEMSchema.png}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
@@ -74,13 +79,12 @@ s =
 q = 17
 \]
 
-% TODO: Vektor transponieren
 \[
 b = A \cdot s + e \; (\bmod\; q)
 =
 \begin{pmatrix}
-8 \\ 16 \\ 3 \\ 12 \\ 9 \\ 16 \\ 3
-\end{pmatrix}
+8 & 16 & 3 & 12 & 9 & 16 & 3
+\end{pmatrix}^T
 \]
 \end{frame}
 
@@ -196,14 +200,23 @@ Kyber1024 & 256 & 4 & 3329 & 2 & 2 & 11 & 5 & $2^{-174}$ \\
 
 \vspace{0.5em}
 
-% TODO: kleiner, 2-spaltig
-\begin{itemize}
-    \item $n$: maximaler Grad der Polynome
-    \item $k$: Anzahl der Polynome pro Vektor
-    \item $q$: Modulus
-    \item $\eta_1, \eta_2$: Begrenzen die Größe der Fehlerterme
-    \item $d_u, d_v$: Kompressionsparameter
-    \item $\delta$: Wahrscheinlichkeit einer Fehlentschlüsselung
-\end{itemize}
+\begin{columns}
+    \begin{column}{0.5\textwidth}
+        \small
+        \begin{itemize}
+            \item $n$: maximaler Grad der Polynome
+            \item $k$: Anzahl der Polynome pro Vektor
+            \item $q$: Modulus
+        \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \small
+        \begin{itemize}
+            \item $\eta_1, \eta_2$: Begrenzen die Größe der Fehlerterme
+            \item $d_u, d_v$: Kompressionsparameter
+            \item $\delta$: Wahrscheinlichkeit einer Fehlentschlüsselung
+        \end{itemize}
+    \end{column}
+\end{columns}
 \end{frame}
 
