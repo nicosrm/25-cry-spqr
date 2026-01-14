@@ -65,7 +65,7 @@
     \begin{itemize}
         \item Erweiterung von X3DH um \emph{PQKEM Encapsulated Shared Secret} ($SS_{\text{KEM}}$)
         
-        \item Verwendung von $SS_{\text{KEM}}$ und Diffie-Hellman-Werten $DH_{\{1,\ldots,4\}}$ aus X3DH in\\\emph{Key Derivation Function} (KDF)
+        \item $SS_{\text{KEM}}$ und Diffie-Hellman-Werte $DH_{\{1,\ldots,4\}}$ aus X3DH als Input für \emph{Key Derivation Function} (KDF)
         
         \item Kombination der Outputs beider Algorithmen $\to$ Umgehen beider Systeme notwendig
     \end{itemize}
@@ -148,7 +148,7 @@
     \note{
         \begin{itemize}
             \item \emph{PQXDH Key Agreement}: Bobs Prekeys notwendig $\to$ Abfrage beim Server
-            \item PQKEM One-Time Signed Prekey $PQOTP_B$ falls vorhanden
+            \item PQKEM One-Time Signed Prekey $PQOPK_B$ falls vorhanden
             \begin{itemize}
                 \item falls nicht, dann \emph{Last Resort Signed Preky} $PQSPK_B$
                 \item entsprechender Key: $PQ\boldsymbol{P}K_B$
