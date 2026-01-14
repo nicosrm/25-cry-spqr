@@ -17,9 +17,9 @@
 
         \begin{column}{0.5\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{assets/PublicKeyEncryption.png}
+            \includegraphics[scale=0.15]{assets/PublicKeyEncryption.png}
             \vspace{0.5em}
-            \includegraphics[width=\textwidth]{assets/KEMSchema.png}
+            \includegraphics[scale=0.15]{assets/KEMSchema.png}
         \end{column}
     \end{columns}
 \end{frame}
@@ -62,29 +62,20 @@ A =
 9  &  5 & 9  & 6  \\
 3  &  6 & 4  & 5  \\
 6  &  7 & 17 & 2
-\end{pmatrix},
-\quad
-e =
-\begin{pmatrix}
-1 \\ -1 \\ 0 \\ -1 \\ 1 \\ 0 \\ 1
-\end{pmatrix},
-\quad
+\end{pmatrix}, \quad
 s =
 \begin{pmatrix}
 0 \\ 13 \\ 9 \\ 11
+\end{pmatrix}, \quad
+e =
+\begin{pmatrix}
+1 \\ -1 \\ 0 \\ -1 \\ 1 \\ 0 \\ 1
 \end{pmatrix}
 \]
 
 \[
-q = 17
-\]
-
-\[
-b = A \cdot s + e \; (\bmod\; q)
-=
-\begin{pmatrix}
-8 & 16 & 3 & 12 & 9 & 16 & 3
-\end{pmatrix}^T
+q = 17, \quad b = (A \cdot s + e) \bmod q = 
+\begin{pmatrix} 8 & 16 & 3 & 12 & 9 & 16 & 3 \end{pmatrix}^T
 \]
 \end{frame}
 
@@ -129,9 +120,7 @@ t = (16x^3 + 15x^2 + 7,\; 10x^3 + 12x^2 + 11x + 6)
 u = A^T r + e_1
 \qquad
 v = t^T r + e_2 + m
-\]
-
-\[
+\qquad
 c = (u,v)
 \]
 
@@ -144,15 +133,12 @@ e_1 = (x^2 + x,\; x^2)
 \qquad
 e_2 = -x^3 - x^2
 \]
-
 \[
 m_b = 11_{10} = 1011_2 = x^3 + x + 1
 \]
-
 \[
 m = \left\lfloor \frac{q}{2} \right\rceil \cdot m_b = 9x^3 + 9x + 9
 \]
-
 \[
 u = (11x^3 + 11x^2 + 10x + 3,\; 4x^3 + 4x^2 + 13x + 11)
 \]
@@ -166,21 +152,17 @@ v = 7x^3 + 6x^2 + 8x + 15
 \[
 m_n = v - s^T u
 \]
-
 \[
 m_n = e^T r + e_2 + m + s^T e_1
 \]
-
 \begin{itemize}
     \item Rauschen ist enthalten
     \item Rundung auf $\left\lfloor \frac{q}{2} \right\rceil$ oder $q$
 \end{itemize}
-
 \[
 m_b = \frac{1}{9}(9x^3 + 0x^2 + 9x + 9)
       = x^3 + x + 1
 \]
-
 \[
 m_b = (1011)_2 = (11)_{10}
 \]
