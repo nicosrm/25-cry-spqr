@@ -72,7 +72,9 @@
 
     \begin{figure}
         \includegraphics[height=2cm]{assets/pqxdh_kdf.drawio.pdf}
+        \caption{Ermittlung vom Shared Key $SK$}
     \end{figure}
+    \vspace{-2em}
 \end{frame}
 
 
@@ -113,7 +115,8 @@
 
 \begin{frame}{PQXDH $\blacktriangleright$ II. Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \begin{figure}
-        \includegraphics[height=6cm]{assets/pqxdh_complete_alice.drawio.pdf}
+        \includegraphics[height=5.7cm]{assets/pqxdh_complete_alice.drawio.pdf}
+        \caption{Ablauf von Phase II. und III. von PQXDH (orientiert an \cite{bhargavanAnalysisSignalsPQXDH2023})}
     \end{figure}
 
     \note{
@@ -163,7 +166,8 @@
 
 \begin{frame}{PQXDH $\blacktriangleright$ II. Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \begin{figure}
-        \includegraphics[height=6cm]{assets/pqxdh_alice_dh_pqkem.drawio.pdf}
+        \includegraphics[height=5.7cm]{assets/pqxdh_alice_dh_pqkem.drawio.pdf}
+        \caption{Ermittlung X3DH- und PQKEM-Output von Alice (orientiert an \cite{schmidtAnalysisSignalsPQXDH2024})}
     \end{figure}
 
     \note{
@@ -248,7 +252,8 @@
 
 \begin{frame}{PQXDH $\blacktriangleright$ III. Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \begin{figure}
-        \includegraphics[height=6cm]{assets/pqxdh_bob_dh_pqkem.drawio.pdf}
+        \includegraphics[height=5.7cm]{assets/pqxdh_bob_dh_pqkem.drawio.pdf}
+        \caption{Ermittlung X3DH- und PQKEM-Output von Bob (orientiert an \cite{schmidtAnalysisSignalsPQXDH2024})}
     \end{figure}
 
     \note{
@@ -290,7 +295,7 @@
     \begin{itemize}
         \item formale Verifikation $\to$ Finden von Angriffsmöglichkeiten
         
-        \item \emph{Key Re-Encapsulation}: Kompromittierung von $PQPK_B$ $\to$ \emph{Man-in-the-Middle}
+        \item bspw. \emph{Key Re-Encapsulation} $\to$ \emph{Man-in-the-Middle Attack}
         \begin{itemize}
             \item[$\Rightarrow$] $AD = \text{EncodeEC}(IK_A) \circ \text{EncodeEC}(IK_B) \circ \alert{\text{EncodeKEM}(PQPK_B)}$
         \end{itemize} 
