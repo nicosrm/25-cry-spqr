@@ -1,18 +1,82 @@
 % !TeX root = ../presentation.tex
 
-\setFooterToMager
+\setFooterToSchramm
 
 {
     \metroset{sectionpage=none}
     \section{Einleitung}
 }
 
-% TODO: Max
+\begin{frame}{Einleitung \footnotesize\cite{coppTrumpOfficialsTexted2025}}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                Associated Press\\
+                \bf\Large
+                \emph{Trump officials texted attack plans to a group chat in a secure app that included a journalist}
+                \vspace{1cm}
+            \end{center}
+        \end{column}
+
+        \begin{column}{0.33\textwidth}
+            \begin{figure}
+                \includegraphics[height=6cm]{./assets/ap_hegseth_cut.png}
+                \caption{Pete Hegseth, US Secretary of Defense~\cite{coppTrumpOfficialsTexted2025}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+
+    \note{
+        \begin{itemize}
+            \item wir haben schon viel über Signal gehört, aber ich möchte noch mal ein Beispiel mitbringen, welches hervorhebt, wie relevant dieser Messenger ist
+            \item Signal wird selbst von der US-Administration verwendet, um Kriegsgeheimnisse zu teilen
+            \item aktuell braucht es noch menschliche Fehler, um Signal zu knacken
+        \end{itemize}
+    }
+\end{frame}
+
+
 \begin{frame}{Einleitung}
-    \begin{itemize}
-        \item Abholen von vorherigem Vortrag
-        \item Warum Post-Quantum-Schutz?
-        \item Motivation durch zukünftige Angriffe
-        \item persönliche Motivation für Thema
-    \end{itemize}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{itemize}
+                \item aktuell: X3DH, Double Ratchet etc.
+                \pause
+                
+                \item am Horizont: \alert{Quantum-Computing}
+                \begin{itemize}
+                    \item[$\Rightarrow$] Lösung von bisher \enquote{unlösbaren} Problemen
+                \end{itemize}
+                
+                \item[$\Rightarrow$] Post-Quanten-Kryptografie
+            \end{itemize}
+        \end{column}
+
+
+        \begin{column}{0.3\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{assets/quantum-computing.pdf}
+                \caption{Quantum Computing (Symbolbild)~\cite{zuozuozuozuoQUANTUMCOMPUTINGIcon}}
+            \end{figure}
+            \vspace{-2em}
+        \end{column}
+    \end{columns}
+
+    \note{
+        \begin{itemize}
+            \item Signal versucht uns schon bestmöglich zu schützen, bspw. mit ...
+            \pause
+
+            \vspace{1em}
+
+            \item seit mehreren Jahren, leuchtet jedoch noch etwas anderes am Horizont, wodurch Attacken nicht mehr auf menschliche Fehler angewiesen sind
+            \item QC $\to$ auf einmal sind bisherige, unknackbare Verschlüsselungstechniken lösbar
+            \item stellt euch vor, dass Signal dennoch geschützt davor ist
+            \item dafür brauchen wir PQ-Kryptografie
+            
+            \vspace{1em}
+
+            \item persönliche Motivation: Interesse an Datenschutz, Benutzung von Signal, Signal-Projekt spannend (E2E-Encryption, Open Source)
+        \end{itemize}
+    }
 \end{frame}
