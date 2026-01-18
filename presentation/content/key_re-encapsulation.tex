@@ -9,11 +9,12 @@
 
     \note{
         \begin{itemize}
-            \item Kompromittierung von einem $PQPK_B^{\color{red} x}$
-            \item O\&E als Man-in-the-Middle: tauschen $PQPK_B$ durch $PQPK_B^{\color{red} comp}$ aus
-            \item bei Abfrage des Prekey-Bundles: Austausch von $PQPK_B$ mit $PQPK_B^{\color{red} comp}$
-            \item A $\to$ B: Entschlüsseln, Austausch vom Ciphertext, Verschlüsseln mit $PQPK_B^{\color{red} comp}$, Senden der kompromittierten Nachricht an Bob
-            \item Fix: KEM muss Public Key des Empfängers beinhalten, sonst Hinzufügen bei $AD$ (vgl. \cite{bhargavanAnalysisSignalsPQXDH2023,schmidtAnalysisSignalsPQXDH2024})
+            \item Kompromittierung \emph{eines} $PQPK$ alle anderen $PQPK'$ auch kompromittiert
+            
+            \item O\&E kompromittieren $PQPK_B^1$, beziehen $CT$, lassen $A$ verschlüsseln, erfahren $SS$
+            \item O\&E finden neuen $CT'$, welcher gültig für $PQPK_B^2$ ist, sodass $\texttt{DEC}(CT') = SS$
+            \item O\&E leiten Nachricht von A nach B weiter, aber tauschen $CT$ mit $CT^{\text{comp}}$ und Key Identifier von $PQPK$ zu $PQPK_B^1$ aus
+            \item B kann Key ebenfalls ausrechnen unter Verwendung von $PQPK_B^2$
         \end{itemize}
     }
 \end{frame}

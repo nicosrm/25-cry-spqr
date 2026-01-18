@@ -8,7 +8,7 @@
     \begin{itemize}
         \item X3DH anfällig gegenüber Quanten-Computing-Attacken~\cite{kretQuantumResistanceSignal2023,schmidtAnalysisSignalsPQXDH2024}
 
-        \item Ziel: Verhinderung von \emph{Harvest Now, Decrypt Later} Attacken (HNDL)
+        \item Ziel: Verhinderung von \emph{Harvest Now, Decrypt Later} Attacken
 
         \pause
 
@@ -113,7 +113,6 @@
 
 \begin{frame}{PQXDH $\blacktriangleright$ II. Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \begin{figure}
-        % TODO: Legende einfügen
         \includegraphics[height=6cm]{assets/pqxdh_complete_alice.drawio.pdf}
     \end{figure}
 
@@ -148,9 +147,10 @@
     \note{
         \begin{itemize}
             \item \emph{PQXDH Key Agreement}: Bobs Prekeys notwendig $\to$ Abfrage beim Server
+            \item {\bf Farben erklären!}
             \item PQKEM One-Time Signed Prekey $PQOPK_B$ falls vorhanden
             \begin{itemize}
-                \item falls nicht, dann \emph{Last Resort Signed Preky} $PQSPK_B$
+                \item falls nicht, dann \emph{Last Resort Signed Prekey} $PQSPK_B$
                 \item entsprechender Key: $PQ\boldsymbol{P}K_B$
                 \item später: falls keine OTP verfügbar, im Protokoll berücksichtigen
             \end{itemize}
@@ -180,7 +180,7 @@
 \begin{frame}{PQXDH $\blacktriangleright$ II. Initiale Nachricht senden \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
     \only<beamer>{
         % \framezoom(upper left x,upper left y)(zoom area width,zoom area depth)
-        \framezoom<0><2>[border](1.7cm,2.35cm)(8cm,3cm)
+        \framezoom<0><2>(1.7cm,2.35cm)(8cm,3cm)
         \framezoom<0><3>[border](1.7cm,3cm)(8cm,3cm)
         \framezoom<0><4>[border](5.2cm,3.5cm)(7cm,2cm)
     }
@@ -224,7 +224,7 @@
         \begin{itemize}
             \item Senden der initialen Nachricht an Bob
             \begin{itemize}
-                \item Identität von Bob
+                \item Identität von Alice
                 \item Alice's Ephemeral Key
                 \item KEM-Ciphertext
                 \item kodierter Ciphertext
@@ -242,7 +242,7 @@
 
     $(IK_A, EK_A, CT_{\text{KEM}}, \alert{CT_{\text{init}}}, \text{ Identifier})$
 
-    $\Rightarrow$ Rückwärtsrechnen von Alice Schritten, Dekodieren statt Enkodieren
+    $\Rightarrow$ Rückwärtsrechnen von Alice Schritten
 \end{frame}
 
 
@@ -255,7 +255,7 @@
         \begin{itemize}
             \item Unterschiede zu Alice in rot hervorgehoben
             \item $DH$-Werte analog zu Alice
-            \item Dekodieren statt Enkodieren
+            \item Decapsulate statt Encapsulate $\to$ auspacken statt verpacken
             \item Input: weiterhin $PQPK_B$ sowie jetzt $CT_{\text{KEM}}$
             \begin{itemize}
                 \item war vorher Resultat von $\texttt{PQKEM-ENC}$
@@ -267,24 +267,16 @@
 
 
 \begin{frame}{PQXDH $\blacktriangleright$ III. Empfangen der initialen Nachricht \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}}
-    \only<beamer>{
-        % \framezoom(upper left x,upper left y)(zoom area width,zoom area depth)
-        \framezoom<0><1>[border](3.6cm,1.75cm)(8.5cm,3.8cm)
-        \framezoom<0><2>[border](3.75cm,2.79cm)(6.9cm,2.1cm)
-    }
+    % \framezoom(upper left x,upper left y)(zoom area width,zoom area depth)
+    \framezoom<0><1>[border](3.6cm,1.76cm)(8.5cm,3.8cm)
 
     \begin{figure}
         \includegraphics[height=6cm]{assets/pqxdh_complete_bob.drawio.pdf}
     \end{figure}
 
-    \note<1>{
+    \note{
         \begin{itemize}
             \item Einordnen von DH- und PQKEM-Berechnungen
-            \item reinzoomen auf nächster Folie
-        \end{itemize}
-    }
-    \note<2>{
-        \begin{itemize}
             \item Wdh. der KDF- und AD-Berechnungen\\
                 $\Rightarrow$ Berechnung von Shared Key $SK$ sowie Associated Data $AD$
             \item Verwendung zum Entschlüsseln von $CT_{\text{init}}$
@@ -294,14 +286,15 @@
 \end{frame}
 
 
-\begin{frame}{PQXDH $\blacktriangleright$ Sicherheitsanalyse \footnotesize\cite{kretPQXDHKeyAgreement2024, schmidtAnalysisSignalsPQXDH2024}}
-    % TODO: :Angriffe vorbereiten, erklären können
+\begin{frame}{PQXDH $\blacktriangleright$ Sicherheitsanalyse \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024, schmidtAnalysisSignalsPQXDH2024}}
     \begin{itemize}
         \item formale Verifikation $\to$ Finden von Angriffsmöglichkeiten
-        \item \emph{Key Re-Encapsulation} $\to$ $PQPK_B$ bei $AD$-Berechnung
+        
+        \item \emph{Key Re-Encapsulation}: Kompromittierung von $PQPK_B$ $\to$ \emph{Man-in-the-Middle}
         \begin{itemize}
-            \item $AD = \text{EncodeEC}(IK_A) \circ \text{EncodeEC}(IK_B) \circ \alert{\text{EncodeKEM}(PQPK_B)}$
+            \item[$\Rightarrow$] $AD = \text{EncodeEC}(IK_A) \circ \text{EncodeEC}(IK_B) \circ \alert{\text{EncodeKEM}(PQPK_B)}$
         \end{itemize} 
+        
         \item \emph{Key Compromise} $\to$ häufiger Austausch von Keys, Anpassung Ratchet
     \end{itemize}
 
@@ -316,8 +309,17 @@
     \note<1>{
         \begin{itemize}
             \item versch. Möglichkeiten in erster Revision gefunden und behoben
-            \item Hinzufügen von PQ-Schutz mehr als nur Einbringen von PQ-Krpto, viele \emph{Pitfalls}
-            \item hier nur Auswahl an Attacken
+            
+            \item Hinzufügen von PQ-Schutz mehr als nur Einbringen von PQ-Krypto, viele \emph{Pitfalls}
+            
+            \item Key-Re-Encapsulation: Kompromittierung von $PQPK_B \to$ \emph{Man-in-the-Middle-Attack}
+            \begin{itemize}
+                \item O\&E als Man-in-the-Middle: Austausch von $PQPK$ durch kompromittierten Schlüssel
+                \item bei Kommunikation: Entpacken, Lesen, ggf. Austausch der Nachricht, Senden
+                \item Fix: KEM muss Public Key des Empfängers beinhalten, sonst Hinzufügen bei $SS$-Bestimmung hinzufügen, bpsw. bei $AD$
+            \end{itemize}
+
+            \item Key Compromise $\to$ Impersonation $\to$ Ratchet
         \end{itemize}
     }
 
