@@ -7,34 +7,41 @@
 \begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
     \vspace*{0.5cm}
     \begin{itemize}
-        % \item Aktueller Stand/Sicherheit soll bei behalten werden
         \item FS und PCS mittels \emph{Continuous Key Agreement} (CKA)
         \begin{itemize}
             \item Verwenden von \emph{Module-Lattice-Based Key-Encapsulation Mechanism} (ML-KEM)
         \end{itemize}
     \end{itemize}
-
     \pause
 
     \only{
         \textbf{Diffie-Hellman Ratchet}
-        \vspace*{-0.5cm}
+        \vspace*{-0.3cm}
         \begin{figure}
-            \includegraphics[height=4.5cm]{assets/DH.drawio-2.pdf}
+            \hspace*{-1.3cm}
+            \includegraphics[height=3.9cm]{assets/dh.drawio.pdf}
+            \vspace*{-0.4cm}
+            \caption{DHR Schlüsselgenerierung (orientiert an \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
         \end{figure}
     }<1-2>
     \only{
         \textbf{Post Quanten Ratchet}
-        \vspace*{-0.9cm}
+        \vspace*{-0.3cm}
         \begin{figure}
-            \includegraphics[height=4.5cm]{assets/kem.drawio.pdf}
+            \hspace*{-1.3cm}
+            \includegraphics[height=3.9cm]{assets/kem.drawio.pdf}
+            \vspace*{-0.4cm}
+            \caption{PQR Schlüsselgenerierung (orientiert an \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
         \end{figure}
     }<3>
     \only{
-        \textbf{Post Quanten Ratchet'} % TODO
-        \vspace*{-0.9cm}
+        \textbf{Post Quanten Ratchet\alert{*}}
+        \vspace*{-0.3cm}
         \begin{figure}
-            \includegraphics[height=4.5cm]{assets/kem.drawio.pdf}
+            \hspace*{-1.3cm}
+            \includegraphics[height=3.9cm]{assets/kem-s.drawio.pdf}
+            \vspace*{-0.4cm}
+            \caption{PQR* Schlüsselgenerierung}
         \end{figure}
     }<4>
 \end{frame}
@@ -46,7 +53,9 @@
                 \item ML-KEM basiert auf geordnetem asymmetrischem Austausch
                 \pause
 
-                \item[$\Rightarrow$] \emph{State Machine}
+                \begin{itemize}
+                    \item[$\Rightarrow$] \emph{State Machine}
+                \end{itemize}
             \end{itemize}
         \end{column}
         \pause
@@ -62,18 +71,20 @@
 \begin{frame}{SPQR $\blacktriangleright$ Problematik II \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
     \textbf{Diffie-Hellman Nachricht}
     \begin{figure}
-        \includegraphics[width=\textwidth]{assets/size.pdf} % TODO
+        \hspace*{-1cm}
+        \includegraphics[width=15.5cm]{assets/dh_m.drawio.pdf}
     \end{figure}
     \pause
 
     \textbf{ML-KEM Nachricht (EK/CT)}
     \begin{figure}
-        \includegraphics[width=\textwidth]{assets/size.pdf} % TODO
+        \hspace*{-1cm}
+        \includegraphics[width=15.5cm]{assets/kem_m.drawio.pdf}
     \end{figure}
     \pause
 
     \begin{itemize}
-        \item Faktor 35
+        \item Faktor \alert{35}
         \item Langsame Performance und hoher Datenverbrauch
         \pause
 
@@ -88,9 +99,9 @@
         \pause
 
         \begin{itemize} % TODO
-            \item Verwendet von PQ3
             \item Probleme bei asynchroner Kommunikation
             \item Angriffsmöglichkeit $\Rightarrow$ Verhindern neues Geheimnis
+            \item Umgesetzt von PQ3
         \end{itemize}
         \pause
 
@@ -103,32 +114,27 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Erasure Codes \cite{dodisTripleRatchetBandwidth2025, connellSignalProtocolPostQuantum2025}}
-    \begin{itemize} % TODO grafik
-        \item Aufteilen von Nachricht $M$ in \emph{Chunks}
-        \item Alle $n$ Chunks ausreichend um Nachricht zusammenzustellen
+\begin{frame}{SPQR $\blacktriangleright$ Erasure Codes \cite{dodisTripleRatchetBandwidth2025, connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+    \vspace*{0.2cm}
+    \begin{figure}
+        \includegraphics[height=4cm]{assets/erasure.drawio.pdf}
+        \caption{Chunking mit Erasure Codes (orientiert an \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
+    \end{figure}
+    \pause
+
+    \vspace*{-0.3cm}
+    \begin{itemize}
+        \item[$\Rightarrow$] Nur auffälliger DOS Angriff ab $n-1$ Nachrichten verhindert neues Geheimnis
         \pause
 
-        \begin{itemize}
-            \item[$\Rightarrow$] Nur auffälliger DOS Angriff ab $n-1$ Nachrichten verhindert neues Geheimnis
-            \pause
-
-            \item[$\Rightarrow$] Kein CKA $\rightarrow$ \emph{Sparse} CKA (SCKA)
-        \end{itemize}
+        \item[$\Rightarrow$] Kein CKA $\rightarrow$ \emph{Sparse} CKA (SCKA)
     \end{itemize}
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ SCKA I \cite{connellSignalProtocolPostQuantum2025}}
-    \only{
-        \begin{figure}
-            \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-1.png} % TODO
-        \end{figure}
-    }<1>
-    \only{
-        \begin{figure}
-            \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-1.png} % TODO mit "angriffsfläche"
-        \end{figure}
-    }<2>
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-1.png} % TODO
+    \end{figure}
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ SCKA II \cite{connellSignalProtocolPostQuantum2025}}
@@ -137,35 +143,32 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid I \cite{connellSignalProtocolPostQuantum2025}}
-    \begin{itemize}
-        \item A generates an EK of 1184 bytes to send to B, and an associated DK
-        \item B receives the EK
-        \item B samples a new shared secret (32 bytes), which he encrypts with EK into a CT of 1088 bytes to send to A
-        \item A receives the CT, uses the DK to decrypt it, and now also has access to the 32 byte shared secret
-    \end{itemize}
-    \pause
-    \textbf{ML-KEM Braid}
-    \begin{itemize}
-        \item Aufbrechen in $EK = EK1 + EK2$ und $CT = CT1 + CT2$
-    \end{itemize}
-\end{frame}
+\begin{frame}{SPQR $\blacktriangleright$ ML-KEM \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Bestandteile \emph{Encapsulation Key} (EK):
+            \begin{itemize}
+                \item Seed, welche zur Matrix $A$ expandiert werden kann
+                \item Vektor $As+e$
+            \end{itemize}
 
-% \begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid \cite{connellSignalProtocolPostQuantum2025}}
-%     \begin{itemize}
-%         \item A generates EK and DK. A extracts the 32-byte Seed from EK
-%         \item A sends 64 bytes EK1 (Seed + Hash(EK)) to B. B sends nothing during this time.
-%         \item B receives the Seed and Hash, and generates the first, largest part of the CT from them (CT1)
-%         \item After this point, A sends EK2 (the rest of the EK minus the Seed), while B sends CT1
-%         \item B eventually receives EK2, and uses it to generate the final portion of the CT (CT2)
-%         \item Once A tells B that she has received all of CT1, B sends A CT2. A sends nothing during this time.
-%         \item With both sides having all of the pieces of EK and the CT that they need, they extract their shared secret and increment their epoch
-%     \end{itemize}
-%     \pause
-%     \begin{itemize}
-%         \item[$\Rightarrow$] \emph{Sparse Post Quantum Ratchet}
-%     \end{itemize}
-% \end{frame}
+            \vspace*{0.5cm}
+            Bestandteile \emph{Ciphertext} (CT):
+            \begin{itemize}
+                \item Vektor $A^Ts'+e'$
+                \item Nachricht für den Abgleich
+            \end{itemize}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \hspace*{-0.3cm}
+                \includegraphics[height=5cm]{assets/kem_p.drawio.pdf}
+                \caption{\emph{Encapsulation Key} und \emph{Ciphertext} (orientiert an \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid \cite{connellSignalProtocolPostQuantum2025}}
     \begin{figure}
@@ -180,16 +183,23 @@
 \end{frame}
 
 \begin{frame}{Triple Ratchet \cite{connellSignalProtocolPostQuantum2025}}
-    \begin{itemize}
-        \item Aktuelle Sicherheit behalten
-        \begin{itemize}
-            \item Hybrid Security
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{itemize}
+            \item Aktuelle Sicherheit behalten
+            \item Erweiterung der \emph{Double Ratchet} (DR) um SPQR
+            \item Codeänderung minimal
         \end{itemize}
-        \item Erweiterung der \emph{Double Ratchet} um SPQR
-        \begin{itemize}
-            \item Mixen des Outputs mittels \emph{Key Derivation Function} % TODO Grafik
-        \end{itemize}
-    \end{itemize}
+        \end{column}
+
+        \begin{column}{0.6\textwidth}
+            \begin{figure}
+                \hspace*{-0.3cm}
+                \includegraphics[height=5.5cm]{assets/tr.drawio.pdf}
+                \caption{Triple Ratchet \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Rollout \cite{connellSignalProtocolPostQuantum2025}}
@@ -199,19 +209,19 @@
         \pause
 
         \begin{itemize}
-            \item Mitsenden von SPQR Data ohne Schlüsselmaterial in der Nachricht
-            \item Antwort nicht SPQR  $\rightarrow$  mit altem Standard weiter kommunizieren
+            \item Mitsenden von \emph{SPQR Data} in der Nachricht
+            \item Falls Antwort nicht SPQR  $\rightarrow$ mit DR kommunizieren
         \end{itemize}
         \pause
 
         \item Angriffsmöglichkeiten?
         \begin{itemize}
-            \item Entfernen der SPQR nicht möglich
-            \item Downgrade nur beim Start möglich
+            \item Entfernen der SPQR?
+            \item Downgrade später erzwingen?
         \end{itemize}
         \pause
 
         \item Ansatz funktioniert auch für zukünftiges mögliches \emph{SPQRv2}
-        \item Irgendwann jede Nachricht mit SPQR geschützt
+        \item Irgendwann garantiert \alert{jede} Nachricht mit SPQR geschützt
     \end{itemize}
 \end{frame}
