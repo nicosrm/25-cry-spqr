@@ -5,6 +5,7 @@
 \section{Sparse Post Quantum Ratchet (SPQR)}
 
 \begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+    \vspace*{0.5cm}
     \begin{itemize}
         % \item Aktueller Stand/Sicherheit soll bei behalten werden
         \item FS und PCS mittels \emph{Continues Key Agreement} (CKA)
@@ -16,28 +17,25 @@
     \pause
 
     \only{
-        \textbf{Diffie-Hellman Ratchet} % TODO
-        \begin{itemize}
-        \item A, with every message she sends, sends an EK
-        \item B, with every message he receives, generates a secret and a CT, and sends the CT back
-        \item A, on receiving a CT, extracts the secret with her DK and mixes it in
-    \end{itemize}
+        \textbf{Diffie-Hellman Ratchet}
+        \vspace*{-0.5cm}
+        \begin{figure}
+            \includegraphics[height=4.5cm]{assets/DH.drawio-2.pdf}
+        \end{figure}
     }<1-2>
     \only{
-        \textbf{Post Quanten Ratchet} % TODO
-        \begin{itemize}
-        \item A, with every message she sends, sends an EK
-        \item B, with every message he receives, generates a secret and a CT, and sends the CT back
-        \item A, on receiving a CT, extracts the secret with her DK and mixes it in
-    \end{itemize}
+        \textbf{Post Quanten Ratchet}
+        \vspace*{-0.9cm}
+        \begin{figure}
+            \includegraphics[height=4.5cm]{assets/kem.drawio.pdf}
+        \end{figure}
     }<3>
     \only{
         \textbf{Post Quanten Ratchet'} % TODO
-        \begin{itemize}
-        \item A, with every message she sends, sends an EK
-        \item B, with every message he receives, generates a secret and a CT, and sends the CT back
-        \item A, on receiving a CT, extracts the secret with her DK and mixes it in
-    \end{itemize}
+        \vspace*{-0.9cm}
+        \begin{figure}
+            \includegraphics[height=4.5cm]{assets/kem.drawio.pdf}
+        \end{figure}
     }<4>
 \end{frame}
 
