@@ -4,7 +4,7 @@
 
 \section{Sparse Post Quantum Ratchet (SPQR)}
 
-\begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
     \begin{itemize}
         % \item Aktueller Stand/Sicherheit soll bei behalten werden
         \item FS und PCS mittels \emph{Continues Key Agreement} (CKA)
@@ -15,60 +15,90 @@
 
     \pause
 
-    \textbf{ML-KEM}
-    \begin{itemize}
+    \only{
+        \textbf{Diffie-Hellman Ratchet} % TODO
+        \begin{itemize}
         \item A, with every message she sends, sends an EK
         \item B, with every message he receives, generates a secret and a CT, and sends the CT back
         \item A, on receiving a CT, extracts the secret with her DK and mixes it in
     \end{itemize}
+    }<1-2>
+    \only{
+        \textbf{Post Quanten Ratchet} % TODO
+        \begin{itemize}
+        \item A, with every message she sends, sends an EK
+        \item B, with every message he receives, generates a secret and a CT, and sends the CT back
+        \item A, on receiving a CT, extracts the secret with her DK and mixes it in
+    \end{itemize}
+    }<3>
+    \only{
+        \textbf{Post Quanten Ratchet'} % TODO
+        \begin{itemize}
+        \item A, with every message she sends, sends an EK
+        \item B, with every message he receives, generates a secret and a CT, and sends the CT back
+        \item A, on receiving a CT, extracts the secret with her DK and mixes it in
+    \end{itemize}
+    }<4>
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Problematik \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{SPQR $\blacktriangleright$ Problematik I \cite{connellSignalProtocolPostQuantum2025}}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \only{
             \begin{itemize}
                 \item ML-KEM basiert auf geordnetem asymmetrischem Austausch
-                    \begin{itemize}
-                        \item \emph{State Machine}
-                    \end{itemize}
+                \pause
+
+                \item[$\Rightarrow$] \emph{State Machine}
             \end{itemize}
-            }<1-4>
-            \only{
-            \begin{itemize}
-                \item EK und CT sehr groß
-                \begin{itemize}
-                    \item Nachricht zu groß\\$\Rightarrow$ langsame Performance und hoher Datenverbrauch
-                \end{itemize}   
-            \end{itemize}
-            }<3-4>
         \end{column}
+        \pause
 
         \begin{column}{0.5\textwidth}
-            \only{
             \begin{figure}
-                \includegraphics[height=4.5cm]{assets/connellSignalProtocolPostQuantum2025_state.png}
+                \includegraphics[height=4.5cm]{assets/connellSignalProtocolPostQuantum2025_state.png} % TODO
             \end{figure}
-            }<2-4>
         \end{column}
     \end{columns}
-    \only{
+\end{frame}
+
+\begin{frame}{SPQR $\blacktriangleright$ Problematik II \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+    \textbf{Diffie-Hellman Nachricht}
     \begin{figure}
-        \includegraphics[width=\textwidth]{assets/size.pdf}
+        \includegraphics[width=\textwidth]{assets/size.pdf} % TODO
     \end{figure}
-    }<4>
+    \pause
+
+    \textbf{ML-KEM Nachricht (EK/CT)}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{assets/size.pdf} % TODO
+    \end{figure}
+    \pause
+
+    \begin{itemize}
+        \item Faktor 35
+        \item Langsame Performance und hoher Datenverbrauch
+        \pause
+
+        \item[$\Rightarrow$] Bandbreiten Limitierung
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ Bandbreiten Limitierung \cite{auerbachHowCompareBandwidth2025, connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
         
         \item Idee 1: Alle 50 Nachrichten oder einmal pro Woche
-        \begin{itemize}
+        \pause
+
+        \begin{itemize} % TODO
             \item Verwendet von PQ3
             \item Probleme bei asynchroner Kommunikation
             \item Angriffsmöglichkeit $\Rightarrow$ Verhindern neues Geheimnis
         \end{itemize}
+        \pause
+
         \item Idee 2: Austausch aufteilen
+        \pause
+
         \begin{itemize}
             \item[$\Rightarrow$] \emph{Erasure Codes}
         \end{itemize}
@@ -76,30 +106,40 @@
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ Erasure Codes \cite{dodisTripleRatchetBandwidth2025, connellSignalProtocolPostQuantum2025}}
-    \begin{itemize}
+    \begin{itemize} % TODO grafik
         \item Aufteilen von Nachricht $M$ in \emph{Chunks}
         \item alle $n$ Chunks ausreichend um Nachricht zusammenzustellen
+        \pause
+
         \begin{itemize}
             \item[$\Rightarrow$] Nur auffälliger DOS Angriff ab $n-1$ Nachrichten verhindert neues Geheimnis
+            \pause
+
+            \item[$\Rightarrow$] Kein CKA $\rightarrow$ \emph{Sparse} CKA (SCKA)
         \end{itemize}
-        % \item An erasure code for a set of symbols Σ, a block length N , and a message size nchunk consists of PPT algorithms Encode, Decode defined as follows: Encode(M, i) → c : It takes as input a message M ∈ Σnchunk , and an integer i ∈ ZN and outputs symbol c ∈ Σ. Decode(L) → M : It takes as input a set L ⊂ ZN × Σ and outputs either a message M ∈ Σnchunk or the symbol ⊥. An erasure code is said to be correct if for all messages M ∈ Σnchunk , for all I ⊂ ZN and L = {(i, Encode(M, i) | i ∈ I)} we have that Decode(L, nchunk) = M if |I| = nchunk and Decode(L, nchunk) = ⊥ if |I| < nchunk.
-        % \item \emph{Reed-Solomon erasure codes}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Kapazität I \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{SPQR $\blacktriangleright$ SCKA I \cite{connellSignalProtocolPostQuantum2025}}
+    \only{
+        \begin{figure}
+            \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-1.png} % TODO
+        \end{figure}
+    }<1>
+    \only{
+        \begin{figure}
+            \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-1.png} % TODO mit "angriffsfläche"
+        \end{figure}
+    }<2>
+\end{frame}
+
+\begin{frame}{SPQR $\blacktriangleright$ SCKA II \cite{connellSignalProtocolPostQuantum2025}}
     \begin{figure}
-        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-1.png}
+        \includegraphics[height=6cm]{assets/capacity II.drawio.pdf} % TODO
     \end{figure}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Kapazität II \cite{connellSignalProtocolPostQuantum2025}}
-    \begin{figure}
-        \includegraphics[height=6cm]{assets/capacity II.drawio.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{SPQR $\blacktriangleright$ Sparse Post Quantum Ratchet \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid I \cite{connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
         \item A generates an EK of 1184 bytes to send to B, and an associated DK
         \item B receives the EK
@@ -113,25 +153,31 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Sparse Post Quantum Ratchet \cite{connellSignalProtocolPostQuantum2025}}
-    \begin{itemize}
-        \item A generates EK and DK. A extracts the 32-byte Seed from EK
-        \item A sends 64 bytes EK1 (Seed + Hash(EK)) to B. B sends nothing during this time.
-        \item B receives the Seed and Hash, and generates the first, largest part of the CT from them (CT1)
-        \item After this point, A sends EK2 (the rest of the EK minus the Seed), while B sends CT1
-        \item B eventually receives EK2, and uses it to generate the final portion of the CT (CT2)
-        \item Once A tells B that she has received all of CT1, B sends A CT2. A sends nothing during this time.
-        \item With both sides having all of the pieces of EK and the CT that they need, they extract their shared secret and increment their epoch
-    \end{itemize}
-    \pause
-    \begin{itemize}
-        \item[$\Rightarrow$] \emph{Sparse Post Quantum Ratchet}
-    \end{itemize}
+% \begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid \cite{connellSignalProtocolPostQuantum2025}}
+%     \begin{itemize}
+%         \item A generates EK and DK. A extracts the 32-byte Seed from EK
+%         \item A sends 64 bytes EK1 (Seed + Hash(EK)) to B. B sends nothing during this time.
+%         \item B receives the Seed and Hash, and generates the first, largest part of the CT from them (CT1)
+%         \item After this point, A sends EK2 (the rest of the EK minus the Seed), while B sends CT1
+%         \item B eventually receives EK2, and uses it to generate the final portion of the CT (CT2)
+%         \item Once A tells B that she has received all of CT1, B sends A CT2. A sends nothing during this time.
+%         \item With both sides having all of the pieces of EK and the CT that they need, they extract their shared secret and increment their epoch
+%     \end{itemize}
+%     \pause
+%     \begin{itemize}
+%         \item[$\Rightarrow$] \emph{Sparse Post Quantum Ratchet}
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid \cite{connellSignalProtocolPostQuantum2025}}
+    \begin{figure}
+        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-2.png} % TODO
+    \end{figure}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Sparse Post Quantum Ratchet \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{SPQR $\blacktriangleright$ State Machine \cite{rolfeschmidtMLKEMBraidProtocol2025}}
     \begin{figure}
-        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-2.png}
+        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-2.png} % TODO
     \end{figure}
 \end{frame}
 
@@ -143,7 +189,7 @@
         \end{itemize}
         \item Erweiterung des \emph{Double Ratchet} um SPQR
         \begin{itemize}
-            \item Mixen des Outputs mittels \emph{Key Derivation Function}
+            \item Mixen des Outputs mittels \emph{Key Derivation Function} % TODO Grafik
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -152,15 +198,21 @@
     \begin{itemize}
         \item Update nicht bei allen zeitgleich möglich $\rightarrow$ keine Kommunikation mehr möglich
         \item Erlauben von \emph{Downgrades}
+        \pause
+
         \begin{itemize}
             \item Mitsenden von SPQR Data ohne Schlüsselmaterial in der Nachricht
             \item Antwort nicht SPQR  $\rightarrow$  mit altem Standard weiter kommunizieren
         \end{itemize}
-        \item Angriffsmöglichkeit?
+        \pause
+
+        \item Angriffsmöglichkeiten?
         \begin{itemize}
             \item Entfernen der SPQR nicht möglich
             \item Downgrade nur beim Start möglich
         \end{itemize}
+        \pause
+
         \item Ansatz funktioniert auch für zukünftiges mögliches \emph{SPQRv2}
         \item Irgendwann jede Nachricht mit SPQR geschützt
     \end{itemize}
