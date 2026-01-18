@@ -69,7 +69,9 @@
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ Problematik II \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+    \vspace*{0.3cm}
     \textbf{Diffie-Hellman Nachricht}
+    \vspace*{-0.5cm}
     \begin{figure}
         \hspace*{-1cm}
         \includegraphics[width=15.5cm]{assets/dh_m.drawio.pdf}
@@ -77,6 +79,7 @@
     \pause
 
     \textbf{ML-KEM Nachricht (EK/CT)}
+    \vspace*{-0.5cm}
     \begin{figure}
         \hspace*{-1cm}
         \includegraphics[width=15.5cm]{assets/kem_m.drawio.pdf}
@@ -132,14 +135,33 @@
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ SCKA I \cite{connellSignalProtocolPostQuantum2025}}
-    \begin{figure}
-        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-1.png} % TODO
+    \only{
+        \begin{figure}
+        \includegraphics[height=6cm]{assets/scka_1.drawio.pdf}
+        \vspace*{-0.3cm}
+        \caption{Kommunikation mit \emph{Sparse Continuous Key Agreement} (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
     \end{figure}
+    }<1>
+    \only{
+        \begin{figure}
+        \includegraphics[height=6cm]{assets/scka_2.drawio.pdf}
+        \vspace*{-0.3cm}
+        \caption{Kommunikation mit \emph{Sparse Continuous Key Agreement} (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
+    \end{figure}
+    }<2>
+    \only{
+        \begin{figure}
+        \includegraphics[height=6cm]{assets/scka_3.drawio.pdf}
+        \vspace*{-0.3cm}
+        \caption{Kommunikation mit \emph{Sparse Continuous Key Agreement} (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
+    \end{figure}
+    }<3>
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ SCKA II \cite{connellSignalProtocolPostQuantum2025}}
     \begin{figure}
-        \includegraphics[height=6cm]{assets/capacity II.drawio.pdf} % TODO
+        \includegraphics[height=6cm]{assets/scka 2.drawio.pdf}
+        \caption{SCKA mit vielen generierten Geheimnissen}
     \end{figure}
 \end{frame}
 
@@ -170,10 +192,25 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid \cite{connellSignalProtocolPostQuantum2025}}
-    \begin{figure}
-        \includegraphics[height=6cm]{assets/connellSignalProtocolPostQuantum2025_spqr-2.png} % TODO
-    \end{figure}
+\begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+    \only{
+        \begin{figure}
+            \includegraphics[height=6cm]{assets/spqr_1.drawio.pdf}
+            \caption{ML-KEM Braid Ablauf (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
+        \end{figure}
+    }<1>
+    \only{
+        \begin{figure}
+            \includegraphics[height=6cm]{assets/spqr_2.drawio.pdf}
+            \caption{ML-KEM Braid Ablauf (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
+        \end{figure}
+    }<2>
+    \only{
+        \begin{figure}
+            \includegraphics[height=6cm]{assets/spqr.drawio.pdf}
+            \caption{ML-KEM Braid Ablauf (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
+        \end{figure}
+    }<3>
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ State Machine \cite{rolfeschmidtMLKEMBraidProtocol2025}}
@@ -196,7 +233,7 @@
             \begin{figure}
                 \hspace*{-0.3cm}
                 \includegraphics[height=5.5cm]{assets/tr.drawio.pdf}
-                \caption{Triple Ratchet \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
+                \caption{Triple Ratchet (orientiert an \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
             \end{figure}
         \end{column}
     \end{columns}
