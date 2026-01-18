@@ -1,0 +1,121 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.2">
+  <diagram name="Seite-1" id="ih5KMfLTUwr8I1-s3AIg">
+    <mxGraphModel dx="1391" dy="1043" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Deha7dk5S774LXP6nRnZ-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Schlüssel \\generiert}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="414" y="199" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{EK geschickt \\CT1 erhalten}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="640" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{CT1 \\erhalten}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="640" y="299" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Header \\geschickt}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="640" y="199" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Keine Schlüssel \\generiert}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="190" y="199" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{CT2 \\generiert}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="190" y="299" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Kein Header \\erhalten}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="640" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{CT1 \\generiert}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="190" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Header \\erhalten}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="414" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{EK erhalten\\CT1 generiert}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="294" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{CT1 \\bestätigt}$$" vertex="1">
+          <mxGeometry height="40" width="120" x="80" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-13" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="320" y="220" as="sourcePoint" />
+            <mxPoint x="404" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-15" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="544" y="220" as="sourcePoint" />
+            <mxPoint x="630" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-16" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="700.25" y="250" as="sourcePoint" />
+            <mxPoint x="700" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-19" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="249.5" y="490" as="sourcePoint" />
+            <mxPoint x="250" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-20" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="700.05" y="350" as="sourcePoint" />
+            <mxPoint x="699.8" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-22" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="700.05" y="450" as="sourcePoint" />
+            <mxPoint x="699.8" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-23" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="320.25" y="500" as="sourcePoint" />
+            <mxPoint x="360" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-24" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="180" y="500" as="sourcePoint" />
+            <mxPoint x="140" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-25" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="360" y="390" as="sourcePoint" />
+            <mxPoint x="320" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-26" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="140" y="390" as="sourcePoint" />
+            <mxPoint x="180" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-27" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="250.25" y="289" as="sourcePoint" />
+            <mxPoint x="249.75" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-28" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="630" y="520" as="sourcePoint" />
+            <mxPoint x="544" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Deha7dk5S774LXP6nRnZ-29" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="404" y="520" as="sourcePoint" />
+            <mxPoint x="320" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

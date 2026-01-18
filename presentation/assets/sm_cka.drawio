@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.2">
+  <diagram name="Seite-1" id="X5GDgQtGW9AP9NNQ8-8o">
+    <mxGraphModel dx="812" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9rcusLZULbpTPpcT-wYl-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Sende\\CT}$$" vertex="1">
+          <mxGeometry height="40" width="100" x="550" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Erhalte \\EK}$$" vertex="1">
+          <mxGeometry height="40" width="100" x="550" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;$$\textbf{Start\\B}$$&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="550" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-38" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="600" y="280" as="sourcePoint" />
+            <mxPoint x="599.5" y="307" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-40" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="340" />
+              <mxPoint x="680" y="450" />
+            </Array>
+            <mxPoint x="660.25" y="340" as="sourcePoint" />
+            <mxPoint x="660" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-54" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="450" />
+              <mxPoint x="520" y="340" />
+            </Array>
+            <mxPoint x="540" y="450" as="sourcePoint" />
+            <mxPoint x="539.75" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-55" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="450" />
+              <mxPoint x="520" y="400" />
+              <mxPoint x="600" y="400" />
+            </Array>
+            <mxPoint x="540" y="450" as="sourcePoint" />
+            <mxPoint x="600" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-56" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="340" />
+              <mxPoint x="680" y="390" />
+              <mxPoint x="600" y="390" />
+            </Array>
+            <mxPoint x="660.25" y="340" as="sourcePoint" />
+            <mxPoint x="600" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-57" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Erhalte\\CT}$$" vertex="1">
+          <mxGeometry height="40" width="100" x="340" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="$$\textbf{Sende \\EK}$$" vertex="1">
+          <mxGeometry height="40" width="100" x="340" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;$$\textbf{Start\\A}$$&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="340" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-60" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="280" as="sourcePoint" />
+            <mxPoint x="389.5" y="307" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-61" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="340" />
+              <mxPoint x="470" y="450" />
+            </Array>
+            <mxPoint x="450.25" y="340" as="sourcePoint" />
+            <mxPoint x="450" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-62" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="310" y="450" />
+              <mxPoint x="310" y="340" />
+            </Array>
+            <mxPoint x="330" y="450" as="sourcePoint" />
+            <mxPoint x="329.75" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-63" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="310" y="450" />
+              <mxPoint x="310" y="400" />
+              <mxPoint x="390" y="400" />
+            </Array>
+            <mxPoint x="330" y="450" as="sourcePoint" />
+            <mxPoint x="390" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9rcusLZULbpTPpcT-wYl-64" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;strokeWidth=2;endFill=1;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="340" />
+              <mxPoint x="470" y="390" />
+              <mxPoint x="390" y="390" />
+            </Array>
+            <mxPoint x="450.25" y="340" as="sourcePoint" />
+            <mxPoint x="390" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
