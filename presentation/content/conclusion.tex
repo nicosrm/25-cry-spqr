@@ -1,15 +1,32 @@
 % !TeX root = ../presentation.tex
 
+\ifx\notFirstPresentation\undefined
+    \setFooterToSchramm
+    \section{Fazit}
+\else
+    \setFooterToNeutral
+\fi
+
 \begin{frame}{Fazit}
     \begin{itemize}
-        \item Quanten-Computing: bisher \enquote{schwierige} Probleme einfacher lösbar\\
-            $\Rightarrow$ Post-Quanten-Sicherheit langfristig notwendig
+        \item Quanten-Computing: bisher \enquote{schwierige} Probleme einfacher lösbar
+        \begin{itemize}
+            \item[$\Rightarrow$] Post-Quanten-Sicherheit langfristig notwendig
+        \end{itemize}
+
+        \ifx\notFirstPresentation\undefined
+            \pause
+        \fi
         
         \item Schutz vor Harvest Now, Decrypt Later Attacken
         \item PQ-sicherer Handshake mittels \alert{PQXDH}
         \begin{itemize}
             \item Erweiterung von X3DH um \alert{CRYSTALS-Kyber}
         \end{itemize}
+
+        \ifx\notFirstPresentation\undefined
+            \pause
+        \fi
 
         \item Erweiterung der Double Ratchet um \alert{SPQR} $\to$ Triple Ratchet
         \begin{itemize}
@@ -18,3 +35,5 @@
         \end{itemize}
     \end{itemize}
 \end{frame}
+
+\def\notFirstPresentation{}
