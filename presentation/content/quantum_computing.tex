@@ -4,46 +4,49 @@
 
 \section{Quantum-Computing}
 
-\begin{frame}{Quantum-Computing $\blacktriangleright$ Grundidee}
+\begin{frame}{Quantum-Computing $\blacktriangleright$ Grundidee \cite{nielsen2010quantum}}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            \begin{itemize}
+                \item Qubits statt klassischer Bits
+                \item Superposition: gleichzeitiger Zustand von 0 und 1
+                \item Verschränkung zwischen Qubits
+                \item Gemeinsame Operationen auf vielen Zuständen
+                \item Interferenz verstärkt korrekte Ergebnisse
+            \end{itemize}
+        \end{column}
+
+        \begin{column}{0.45\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{./assets/QBitsZustand.png}
+                \caption{\footnotesize Zustand eines Qubits\cite{wikipediaQubitBlochKugel}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+
+\begin{frame}{Quantum-Computing $\blacktriangleright$ Aktueller Stand der Technik cite{nielsen2010quantum, gidney2021factor}}
     \begin{itemize}
-        \item Qubits statt klassischer Bits
-        \item Superposition: gleichzeitiger Zustand von 0 und 1
-        \item Verschränkung zwischen Qubits
-        \item Gemeinsame Operationen auf vielen Zuständen
-        \item Interferenz verstärkt korrekte Ergebnisse
+        \item RSA und ECC gelten heute als sicher, aber gefährdet durch Quantencomputer
+        \item Spezielle Quantenprogramme bereits schneller als klassische Supercomputer
+        \item Geschwindigkeitsvorteile bis zu $13{.}000\times$\cite{google2025observation}
+        \item Experimentelle Demonstrationen existieren 
+        \item Noch keine praktischen Angriffe auf Kryptosysteme 
+        \item Quantenhardware aktuell stark limitiert 
     \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Quantum-Computing $\blacktriangleright$  Bedeutung für die Kryptografie}
+
+\begin{frame}{Quantum-Computing $\blacktriangleright$ Algorithmischer Kern \& Ausblick \cite{gidney2021factor, roetteler2017quantum}}
     \begin{itemize}
-        \item RSA und ECC gelten heute als sicher
-        \item Sicherheit basiert auf hohem Rechenaufwand
-        \item Quantenalgorithmen sind asymptotisch schneller
-        \item Bisher unlösbare Probleme werden lösbar
-        \item Durchbruch abhängig von Rechnergröße
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Quantum-Computing $\blacktriangleright$ Aktueller Stand der Technik}
-    \begin{itemize}
-        \item Spezielle Quantenprogramme bereits schneller
-        \item Geschwindigkeitsvorteile bis zu $13{.}000\times$
-        \item Experimentelle Demonstrationen existieren
-        \item Noch keine praktischen Angriffe auf Kryptosysteme
-        \item Quantenhardware aktuell stark limitiert
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Quantum-Computing $\blacktriangleright$ Algorithmischer Kern \& Ausblick}
-    \begin{itemize}
-        \item Shors Algorithmus als zentrale Bedrohung
-        \item Reduktion auf Periodenfindung
+        \item Shors Algorithmus als zentrale Bedrohung 
         \item Nutzung von Quanten-Parallelität
-        \item Sehr hoher Bedarf an fehlerkorrigierten Qubits
-        \item Post-Quantum-Kryptografie langfristig notwendig
+        \item Sehr hoher Bedarf an fehlerkorrigierten Qubits  % TODO grafk zu korigierten qbits
+        \item Post-Quantum-Kryptografie langfristig notwendig 
     \end{itemize}
 \end{frame}
 
