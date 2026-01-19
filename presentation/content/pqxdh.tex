@@ -293,19 +293,19 @@
 
 \begin{frame}{PQXDH $\blacktriangleright$ Sicherheitsanalyse \footnotesize\cite{bhargavanAnalysisSignalsPQXDH2023,kretPQXDHKeyAgreement2024, schmidtAnalysisSignalsPQXDH2024}}
     \begin{itemize}
-        \item formale Verifikation $\to$ Finden von Angriffsmöglichkeiten
+        \item Formale Verifikation $\to$ Finden von Angriffsmöglichkeiten
         
-        \item bspw. \emph{Key Re-Encapsulation} $\to$ \emph{Man-in-the-Middle Attack}
+        \item Bspw. \emph{Key Re-Encapsulation} $\to$ \emph{Man-in-the-Middle Attack}
         \begin{itemize}
             \item[$\Rightarrow$] $AD = \text{EncodeEC}(IK_A) \circ \text{EncodeEC}(IK_B) \circ \alert{\text{EncodeKEM}(PQPK_B)}$
         \end{itemize} 
     \end{itemize}
 
+    \vspace{1em}
     \pause
     \begin{itemize}
-        \item kein Schutz vor \emph{Active Quantum Adversaries} (Nicht-Ziel)
         \item PQXDH erfüllt klassische PQ-Sicherheitsanforderungen
-        \item weitere Analysen siehe \cite{kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}
+        \item Weitere Analysen siehe \cite{kretPQXDHKeyAgreement2024,schmidtAnalysisSignalsPQXDH2024}
         \item \cite{schmidtAnalysisSignalsPQXDH2024}: Ratchet muss geschützt werden $\Rightarrow$ \alert{SPQR}
     \end{itemize}
 
