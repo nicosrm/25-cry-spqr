@@ -23,7 +23,7 @@
             \vspace*{-0.4cm}
             \caption{DHR Schlüsselgenerierung (orientiert an \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
         \end{figure}
-    }<1-2>
+    }<1-2|handout:0>
     \only{
         \textbf{Post Quanten Ratchet}
         \vspace*{-0.3cm}
@@ -34,16 +34,26 @@
             \caption{PQR Schlüsselgenerierung (orientiert an \cite{rolfeschmidtDesigningPostQuantumRatchet2025})}
         \end{figure}
     }<3>
-    \only{
-        \textbf{Post Quanten Ratchet\alert{*}}
-        \vspace*{-0.3cm}
-        \begin{figure}
-            \hspace*{-1.3cm}
-            \includegraphics[height=3.9cm]{assets/kem-s.drawio.pdf}
-            \vspace*{-0.4cm}
-            \caption{PQR* Schlüsselgenerierung}
-        \end{figure}
-    }<4>
+\end{frame}
+
+\begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \footnotesize\cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+    \vspace*{0.5cm}
+    \begin{itemize}
+        \item FS und PCS mittels \emph{Continuous Key Agreement} (CKA)
+        \begin{itemize}
+            \item Verwenden von \emph{Module-Lattice-Based Key-Encapsulation Mechanism} (ML-KEM)
+        \end{itemize}
+    \end{itemize}
+    \pause
+
+    \textbf{Post Quanten Ratchet\alert{*}}
+    \vspace*{-0.3cm}
+    \begin{figure}
+        \hspace*{-1.3cm}
+        \includegraphics[height=3.9cm]{assets/kem-s.drawio.pdf}
+        \vspace*{-0.4cm}
+        \caption{PQR* Schlüsselgenerierung}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{SPQR $\blacktriangleright$ Problematik I \footnotesize\cite{connellSignalProtocolPostQuantum2025}}
