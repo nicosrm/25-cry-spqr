@@ -4,7 +4,7 @@
 
 \section{Sparse Post Quantum Ratchet (SPQR)}
 
-\begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+\begin{frame}{SPQR $\blacktriangleright$ Forward Secrecy und Post-Compromise Security \footnotesize\cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
     \vspace*{0.5cm}
     \begin{itemize}
         \item FS und PCS mittels \emph{Continuous Key Agreement} (CKA)
@@ -46,7 +46,7 @@
     }<4>
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Problematik I \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{SPQR $\blacktriangleright$ Problematik I \footnotesize\cite{connellSignalProtocolPostQuantum2025}}
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{itemize}
@@ -69,7 +69,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Problematik II \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+\begin{frame}{SPQR $\blacktriangleright$ Problematik II \footnotesize\cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
     \vspace*{0.3cm}
     \textbf{Diffie-Hellman Nachricht}
     \vspace*{-0.5cm}
@@ -96,7 +96,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Bandbreiten Limitierung \cite{auerbachHowCompareBandwidth2025, connellSignalProtocolPostQuantum2025,dodisTripleRatchetBandwidth2025}}
+\begin{frame}{SPQR $\blacktriangleright$ Bandbreiten Limitierung \footnotesize\cite{auerbachHowCompareBandwidth2025, connellSignalProtocolPostQuantum2025,dodisTripleRatchetBandwidth2025}}
     \begin{itemize}
         
         \item Idee 1: Alle 50 Nachrichten oder einmal pro Woche
@@ -118,7 +118,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ Erasure Codes \cite{dodisTripleRatchetBandwidth2025, connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+\begin{frame}{SPQR $\blacktriangleright$ Erasure Codes \footnotesize\cite{dodisTripleRatchetBandwidth2025, connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
     \vspace*{0.2cm}
     \begin{figure}
         \includegraphics[height=4cm]{assets/erasure.drawio.pdf}
@@ -135,38 +135,31 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ SCKA I \cite{connellSignalProtocolPostQuantum2025}}
-    \only{
-        \begin{figure}
-        \includegraphics[height=6cm]{assets/scka_1.drawio.pdf}
+\begin{frame}{SPQR $\blacktriangleright$ SCKA I \footnotesize\cite{connellSignalProtocolPostQuantum2025}}
+    \begin{figure}
+        \only{
+            \includegraphics[height=6cm]{assets/scka_1.drawio.pdf}
+        }<1|handout:0>
+        \only{
+            \includegraphics[height=6cm]{assets/scka_2.drawio.pdf}
+        }<2|handout:0>
+        \only{
+            \includegraphics[height=6cm]{assets/scka_3.drawio.pdf}
+        }<3>
+        
         \vspace*{-0.3cm}
         \caption{Kommunikation mit \emph{Sparse Continuous Key Agreement} (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
     \end{figure}
-    }<1>
-    \only{
-        \begin{figure}
-        \includegraphics[height=6cm]{assets/scka_2.drawio.pdf}
-        \vspace*{-0.3cm}
-        \caption{Kommunikation mit \emph{Sparse Continuous Key Agreement} (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
-    \end{figure}
-    }<2>
-    \only{
-        \begin{figure}
-        \includegraphics[height=6cm]{assets/scka_3.drawio.pdf}
-        \vspace*{-0.3cm}
-        \caption{Kommunikation mit \emph{Sparse Continuous Key Agreement} (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
-    \end{figure}
-    }<3>
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ SCKA II \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{SPQR $\blacktriangleright$ SCKA II \footnotesize\cite{connellSignalProtocolPostQuantum2025}}
     \begin{figure}
         \includegraphics[height=6cm]{assets/scka 2.drawio.pdf}
         \caption{SCKA mit vielen generierten Geheimnissen}
     \end{figure}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ ML-KEM \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+\begin{frame}{SPQR $\blacktriangleright$ ML-KEM \footnotesize\cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Bestandteile \emph{Encapsulation Key} (EK):
@@ -193,35 +186,31 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
-    \only{
-        \begin{figure}
+\begin{frame}{SPQR $\blacktriangleright$ ML-KEM Braid \footnotesize\cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025}}
+    \begin{figure}
+        \only{
             \includegraphics[height=6cm]{assets/spqr_1.drawio.pdf}
-            \caption{ML-KEM Braid Ablauf (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
-        \end{figure}
-    }<1>
-    \only{
-        \begin{figure}
+        }<1|handout:0>
+        \only{
             \includegraphics[height=6cm]{assets/spqr_2.drawio.pdf}
-            \caption{ML-KEM Braid Ablauf (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
-        \end{figure}
-    }<2>
-    \only{
-        \begin{figure}
+        }<2|handout:0>
+        \only{
             \includegraphics[height=6cm]{assets/spqr.drawio.pdf}
-            \caption{ML-KEM Braid Ablauf (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
-        \end{figure}
-    }<3>
+        }<3>
+
+        \caption{ML-KEM Braid Ablauf (orientiert an \cite{connellSignalProtocolPostQuantum2025,rolfeschmidtDesigningPostQuantumRatchet2025})}
+    
+    \end{figure}
 \end{frame}
 
-\begin{frame}{SPQR $\blacktriangleright$ State Machine \cite{rolfeschmidtMLKEMBraidProtocol2025}}
+\begin{frame}{SPQR $\blacktriangleright$ State Machine \footnotesize\cite{rolfeschmidtMLKEMBraidProtocol2025}}
     \begin{figure}
         \includegraphics[height=6cm]{assets/sm_spqr.drawio.pdf}
         \caption{\emph{State Machine} von ML-KEM Braid (orientiert an \cite{rolfeschmidtMLKEMBraidProtocol2025})}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Triple Ratchet \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{Triple Ratchet \footnotesize\cite{connellSignalProtocolPostQuantum2025}}
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{itemize}
@@ -241,7 +230,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Rollout \cite{connellSignalProtocolPostQuantum2025}}
+\begin{frame}{Rollout \footnotesize\cite{connellSignalProtocolPostQuantum2025}}
     \begin{itemize}
         \item Update nicht bei allen zeitgleich möglich $\rightarrow$ keine Kommunikation mehr möglich
         \item Erlauben von \emph{Downgrades}
