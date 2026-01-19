@@ -31,11 +31,13 @@
     \note{
         \begin{itemize}
             \item wir haben schon viel über Signal gehört
-            \item persönliche Motivation: Interesse an Datenschutz, Benutzung von Signal, Signal-Projekt spannend (E2E-Encryption, Open Source)
+            \item persönliche Motivation: Benutzung von Signal, Signal-Projekt spannend (E2E-Encryption, Open Source)
             
             \item aber ich möchte noch mal ein Beispiel mitbringen, welches hervorhebt, wie relevant dieser Messenger ist
             \item Signal wird selbst von der US-Administration verwendet, um Kriegsgeheimnisse zu teilen
-            \item aktuell braucht es noch menschliche Fehler, um Signal zu knacken
+            \item Signal ist nicht sinnvoll knackbar
+            \item aktuell braucht es noch menschliche Fehler dafür
+            \item Wie macht Signal das?
         \end{itemize}
     }
 \end{frame}
@@ -67,19 +69,21 @@
         \end{column}
     \end{columns}
 
-    \note{
+    \note<1>{
         \begin{itemize}
             \item Signal versucht uns schon bestmöglich zu schützen, bspw. mit ...
-            \pause
-
-            \vspace{1em}
-
+        \end{itemize}
+    }
+    \note<2>{
+        \begin{itemize}
             \item seit mehreren Jahren, leuchtet jedoch noch etwas anderes am Horizont, wodurch Attacken nicht mehr auf menschliche Fehler angewiesen sind
             \item QC $\to$ auf einmal sind bisherige, unknackbare Verschlüsselungstechniken lösbar
-            \item stellt euch vor, dass Signal dennoch geschützt davor ist
+            \item Signal auch zukünftig schützen<
             \item dafür brauchen wir PQ-Kryptografie
         \end{itemize}
 
+        \vspace{1em}
+        Gliederung:
         $\Rightarrow$ KEM: Alternative zum Public Key Encryption Verfahren
     }
 \end{frame}

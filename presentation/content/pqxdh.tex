@@ -155,7 +155,6 @@
             \begin{itemize}
                 \item falls nicht, dann \emph{Last Resort Signed Prekey} $PQSPK_B$
                 \item entsprechender Key: $PQ\boldsymbol{P}K_B$
-                \item später: falls keine OTP verfügbar, im Protokoll berücksichtigen
             \end{itemize}
             \item Server löscht OTPs anschließend $\to$ \emph{single use}
             \item Alice verifiziert Signaturen der Prekeys; Abbruch bei Fehlschlag
@@ -321,8 +320,6 @@
                 \item bei Kommunikation: Entpacken, Lesen, ggf. Austausch der Nachricht, Senden
                 \item Fix: KEM muss Public Key des Empfängers beinhalten, sonst Hinzufügen bei $SS$-Bestimmung hinzufügen, bpsw. bei $AD$
             \end{itemize}
-
-            \item Key Compromise $\to$ Impersonation $\to$ Ratchet
         \end{itemize}
     }
 
