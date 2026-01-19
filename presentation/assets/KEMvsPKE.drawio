@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.2">
   <diagram name="Seite-1" id="M9JEj38U9wh1TsGrE9g1">
-    <mxGraphModel dx="868" dy="469" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="443" dy="240" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -39,7 +39,7 @@
         <mxCell id="6NsVim6UqQWp8PFe-Z0w-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="c" vertex="1">
           <mxGeometry height="30" width="60" x="210" y="270" as="geometry" />
         </mxCell>
-        <mxCell id="6NsVim6UqQWp8PFe-Z0w-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="key = Decap( Public Key, c)" vertex="1">
+        <mxCell id="6NsVim6UqQWp8PFe-Z0w-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="key = Decap( Private&amp;nbsp;Key, c)" vertex="1">
           <mxGeometry height="30" width="90" x="120" y="270" as="geometry" />
         </mxCell>
         <mxCell id="6NsVim6UqQWp8PFe-Z0w-14" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Alice" vertex="1">
@@ -77,7 +77,7 @@
         <mxCell id="6NsVim6UqQWp8PFe-Z0w-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="c" vertex="1">
           <mxGeometry height="30" width="60" x="212.5" y="430" as="geometry" />
         </mxCell>
-        <mxCell id="6NsVim6UqQWp8PFe-Z0w-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="m= Decap( Public Key, c)" vertex="1">
+        <mxCell id="6NsVim6UqQWp8PFe-Z0w-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="m= Decap( Private Key, c)" vertex="1">
           <mxGeometry height="30" width="90" x="122.5" y="430" as="geometry" />
         </mxCell>
         <mxCell id="6NsVim6UqQWp8PFe-Z0w-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;KEM&lt;/font&gt;" vertex="1">
